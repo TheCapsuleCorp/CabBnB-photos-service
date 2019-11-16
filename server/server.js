@@ -6,7 +6,7 @@ const app = express();
 // const router = require('./routes.js'); <- MORE THAN LIKELY NOT NEEDED DUE TO ONLY HAVING ONE ENDPOINT
 
 app.use(parser.json());
-app.use(express.static('public'));
+app.use(express.static('./client/dist'));
 
 // app.use('/', router);
 
