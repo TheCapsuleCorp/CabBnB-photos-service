@@ -1,4 +1,7 @@
 import React from 'react';
+import { FaBeer } from 'react-icons/fa';
+import { FaHeart } from 'react-icons/fa';
+
 
 class App extends React.Component {
   constructor(props) {
@@ -15,13 +18,26 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="parent">
-        <table>
-          <tbody>
-            <h1>hello world</h1>
-          </tbody>
-        </table>
-        <button onClick={this.handleClick}>Reset Game</button>
+      <div>
+        <div className="parent">
+          <div className="shareAndSaveContainer">
+            <div className="shareButton" onClick={this.handleClick}>
+              <a className="share" href="#"><FaBeer />  Share</a>
+            </div>
+            <div className="saveButton" onClick={this.handleClick}>
+              <a className="save" href="#"><FaHeart />  Save</a>
+            </div>
+          </div>
+
+
+
+          <div className="viewPhotosButton" onClick={this.handleClick}>
+            <a href="https://www.airbnb.com/rooms/3447812/slideshow/?check_in=2019-11-22&check_out=2019-11-25&adults=2&children=0&infants=0">View Photos</a>
+          </div>
+        </div>
+        <h1>hello world</h1>
+        // <div className="photoDescription">Description of a property looks like this</div>
+        <p> Comparison description, here.</p>
       </div>
     );
   }

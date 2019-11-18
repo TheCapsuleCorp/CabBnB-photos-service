@@ -14,6 +14,6 @@ app.get('/', function (req, res) {
   res.send('Get Request - Rendering Home Page');
 });
 
-app.listen(3000, () => {
-  console.log('Successfully Connected to the Server on port 3000');
+app.listen(8080, () => {
+  console.log('Successfully Connected to the Server on port 8080');
 });

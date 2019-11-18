@@ -1,59 +1,127 @@
-/* .parent {
+@font-face {
+font-family: 'Airbnb Cereal App Book';
+font-style: normal;
+font-weight: normal;
+src: local('Airbnb Cereal App Book'), url('./fonts/airbnb-cereal-app-cufonts-woff/AirbnbCerealBook.woff') format('woff');
+}
+
+
+@font-face {
+font-family: 'Airbnb Cereal App Light';
+font-style: normal;
+font-weight: normal;
+src: local('Airbnb Cereal App Light'), url('./fonts/airbnb-cereal-app-cufonts-woff/AirbnbCerealLight.woff') format('woff');
+}
+
+
+@font-face {
+font-family: 'Airbnb Cereal App Medium';
+font-style: normal;
+font-weight: normal;
+src: local('Airbnb Cereal App Medium'), url('./fonts/airbnb-cereal-app-cufonts-woff/AirbnbCerealMedium.woff') format('woff');
+}
+
+
+@font-face {
+font-family: 'Airbnb Cereal App Bold';
+font-style: normal;
+font-weight: normal;
+src: local('Airbnb Cereal App Bold'), url('./fonts/airbnb-cereal-app-cufonts-woff/AirbnbCerealBold.woff') format('woff');
+}
+
+
+@font-face {
+font-family: 'Airbnb Cereal App Extra Bold';
+font-style: normal;
+font-weight: normal;
+src: local('Airbnb Cereal App Extra Bold'), url('./fonts/airbnb-cereal-app-cufonts-woff/AirbnbCerealExtraBold.woff') format('woff');
+}
+
+
+@font-face {
+font-family: 'Airbnb Cereal App Black';
+font-style: normal;
+font-weight: normal;
+src: local('Airbnb Cereal App Black'), url('./fonts/airbnb-cereal-app-cufonts-woff/AirbnbCerealBlack.woff') format('woff');
+}
+
+.parent{
   display: flex;
   flex-direction: column;
-  align-items: center;
-  background-image: url(http://gamehousecafe.com/wp-content/uploads/2018/02/Connect-Four.jpg);
-  background-size: 700px;
-  height: 700px;
-  background-position: center;
-  background-repeat: no-repeat;
+  align-items: flex-start;
+  background-color: blue;
+  border: solid 12px black;
+  height: 295px;
 }
 
-.row {
-  border: 2px solid black;
-  height: 50px;
-  width: 350px;
-  margin-left: 50%;
+.shareAndSaveContainer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin-top: 3%;
+  padding-left: 77%;
 }
 
-.cell {
-  border: 2px solid black;
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
+.saveButton {
+  margin-left: 20px;
 }
 
-.red {
-  background-color: red;
+.share {
+
 }
 
-.black {
-  background-color: black;
+.viewPhotosButton {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin-top: 5%;
+  padding-left: 84%;
+  /* box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.14);
+  align-self: baseline;
+  position: auto; */
+  /* right: 24px;
+  bottom: 24px; */
+  /* -webkit-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0); */
+  /* z-index: 1; */
+
 }
 
-.white {
-  background-color: white;
+.shareButton {
+  display: inline;
 }
 
-table {
-  margin-top: 275px;
-  margin-right: 1.5%;
-  padding-right: 1.5%;
+.saveButton {
+  display: inline;
 }
 
-h1 {
-  text-align: center;
-}
-
-button {
-  margin-top: 1%;
-  color: #fff !important;
-  text-transform: uppercase;
+a {
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: normal;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+  text-transform: undefined;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  font-weight: 400;
+  border-width: var(--border-button-small-border-width, 1px);
+  padding-left: var(--spacing-button-small-horizontal, 15px);
+  padding-right: var(--spacing-button-small-horizontal, 15px);
+  box-shadow: var(--shadow-button-level0-box-shadow, none);
+  background: var(--color-buttons-inverse-color, #ffffff);
+  border-color: var(--color-buttons-inverse-border, transparent);
+  color: var(--color-buttons-inverse-text, #484848);
   text-decoration: none;
-  background: #60a3bc;
-  padding: 20px;
-  border-radius: 50px;
-  display: inline-block;
-  border: none;
-  transition: all 0.4s ease 0s;
-} */
+}
+
+.photoDescription {
+  margin: 0px;
+  word-wrap: break-word;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.375em;
+  color: #484848;
+}
