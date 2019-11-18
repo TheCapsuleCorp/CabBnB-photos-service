@@ -35,7 +35,7 @@ class App extends React.Component {
             <a href="https://www.airbnb.com/rooms/3447812/slideshow/?check_in=2019-11-22&check_out=2019-11-25&adults=2&children=0&infants=0">View Photos</a>
           </div>
         </div>
-        <h1>hello world</h1>
+  
         // <div className="photoDescription">Description of a property looks like this</div>
         <p> Comparison description, here.</p>
       </div>
