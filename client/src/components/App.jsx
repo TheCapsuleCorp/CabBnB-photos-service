@@ -34,10 +34,11 @@ class App extends React.Component {
           <div className="viewPhotosButton" onClick={this.handleClick}>
             <a href="https://www.airbnb.com/rooms/3447812/slideshow/?check_in=2019-11-22&check_out=2019-11-25&adults=2&children=0&infants=0">View Photos</a>
           </div>
-        </div>
-  
-        // <div className="photoDescription">Description of a property looks like this</div>
+        </div><br/><br/><br/>
+
+        <div className="photoDescription">Photo Description is styled to look like this</div>
         <p> Comparison description, here.</p>
+
       </div>
     );
   }
