@@ -2,7 +2,7 @@
   "name": "Cap-BnB",
   "version": "",
   "description": "",
-  "author": "",
+  "author": "Landon Metcalf",
   "license": "",
   "main": "server/server.js",
   "scripts": {
@@ -14,7 +14,8 @@
     "express": "^4.17.1",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
-    "react-icons": "^3.8.0"
+    "react-icons": "^3.8.0",
+    "mongoose": "^4.13.19"
   },
   "devDependencies": {
     "@babel/cli": "^7.6.4",

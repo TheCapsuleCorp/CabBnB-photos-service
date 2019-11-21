@@ -1,19 +1,37 @@
 const express = require('express');
-// const model = require('./models/model.js'); <-- UNCOMMENT IF I USE MODELS
-// const sControllers = require('.sdb/index.js');
 const parser = require('body-parser');
+const mongodb = require('../db');
+
 const app = express();
+
 // const router = require('./routes.js'); <- MORE THAN LIKELY NOT NEEDED DUE TO ONLY HAVING ONE ENDPOINT
+// app.use('/', router);
 
 app.use(parser.json());
 app.use(express.static('./client/dist'));
+app.use(parser.urlencoded({ extended: false }));
 
-// app.use('/', router);
 
 app.get('/', function (req, res) {
+  mongodb.save(photos, (err, data) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(data);
+    }
+  });
   res.send('Get Request - Rendering Home Page');
 });
 
 app.listen(8080, () => {
-  console.log('Successfully Connected to the Server on port 8080');
+
+  console.log('Successfully Connected to the Server on port 8080 - MONGOOSE attempt');
 });
+
+const photos = [
+  {
+    url: 'https://cap-bnb-photo-service.s3.us-east-2.amazonaws.com/1-stream-belmont-3.jpg',
+    description: 'Really cool place!',
+    roomId: 3447812,
+  }
+]
