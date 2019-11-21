@@ -11,7 +11,6 @@ app.use(parser.json());
 app.use(express.static('./client/dist'));
 app.use(parser.urlencoded({ extended: false }));
 
-
 app.get('/', function (req, res) {
   mongodb.save(photos, (err, data) => {
     if (err) {

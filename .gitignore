@@ -133,3 +133,6 @@ client/dist/*.gif
 client/dist/*.jpg
 client/dist/*.png
 client/dist/*.svg
+
+# Assets
+assets
