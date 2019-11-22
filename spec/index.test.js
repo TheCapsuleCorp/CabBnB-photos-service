@@ -9,11 +9,11 @@ describe('First test', () => {
 });
 
 
-describe('Get User tests', () => {
-  it('Should return a string in response to a GET request', () => {
+describe('Access S3 server object', () => {
+  it('Should return a string in response to a GET request to an object in S3', () => {
     return get()
       .then(response => {
-        // console.log(response);
+        console.log(typeof response);
         //expect an string back
         expect(typeof response).to.equal('string');
       });
