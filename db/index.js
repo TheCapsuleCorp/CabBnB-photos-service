@@ -16,17 +16,17 @@ const photoSchema = new mongoose.Schema({
 
 const Photos = mongoose.model('Photos', photoSchema);
 //
-Photos.insertMany(set, (err) => {
-  if (err) {
-    console.log(err);
-  } else {
-    Photos.count({}, function (err, count) {
-      console.log('there are %d photos in collection', count);
-    });
-  }
-});
+// Photos.insertMany(set, (err) => {
+//   if (err) {
+//     console.log(err);
+//   } else {
+//     Photos.count({}, function (err, count) {
+//       console.log('there are %d photos in collection', count);
+//     });
+//   }
+// });
 
- 
+
 
 
 const save = (photos, callback) => {

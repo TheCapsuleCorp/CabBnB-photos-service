@@ -12,13 +12,14 @@ app.use(express.static('./client/dist'));
 app.use(parser.urlencoded({ extended: false }));
 
 app.get('/', function (req, res) {
-  mongodb.save(photos, (err, data) => {
-    if (err) {
-      console.log(err);
-    } else {
-      console.log(data);
-    }
-  });   
+  // mongodb.save(photos, (err, data) => {
+  //   if (err) {
+  //     console.log(err);
+  //   } else {
+  //     console.log(data);
+  //   }
+  // });
+  console.log('response from GET request       :' + res);
   res.send('Get Request - Rendering Home Page');
 });
 
