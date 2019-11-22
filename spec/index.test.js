@@ -1,7 +1,7 @@
 const expect = require('chai').expect;
 
-const getS3 = require('./test-server.js').getS3;
-const getLocal = require('./test-server.js').getLocal;
+const getResponseS3 = require('./test-server.js').getResponseS3;
+const getResponseHome = require('./test-server.js').getResponseHome;
 
 describe('First test', () => {
   it('Should assert true to be true', () => {
@@ -10,9 +10,9 @@ describe('First test', () => {
 });
 
 
-describe('Access S3 server object', () => {
-  it('Should return a string in response to a GET request to an object in S3', () => {
-    return getS3()
+describe('Get string back from Get request to S3', () => {
+  it('Returns a string', () => {
+    return getResponseS3()
       .then(response => {
         console.log(typeof response);
         //expect an string back
@@ -21,9 +21,9 @@ describe('Access S3 server object', () => {
   });
 });
 
-describe('Successfully hit '/' on GET request and return string', () => {
-  it('Should return a string in response to a GET request to local host', () => {
-    return getLocal()
+describe('Get string back from Get request to slash endpoint at Local Host', () => {
+  it('Returns a string', () => {
+    return getResponseHome()
       .then(response => {
         console.log(typeof response);
         //expect an string back
