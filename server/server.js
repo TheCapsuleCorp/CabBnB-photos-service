@@ -18,13 +18,13 @@ app.get('/', function (req, res) {
     } else {
       console.log(data);
     }
-  });
+  });   
   res.send('Get Request - Rendering Home Page');
 });
 
 app.listen(8080, () => {
 
-  console.log('Successfully Connected to the Server on port 8080 - MONGOOSE attempt');
+  console.log('Successfully Connected to the Server on port 8080 - TEST attempt');
 });
 
 const photos = [
