@@ -20,7 +20,7 @@ app.get('/', function (req, res) {
   //   }
   // });
   console.log('response from GET request       :' + res);
-  res.send('Get Request - Rendering Home Page');
+  res.send(200);
 });
 
 app.listen(8080, () => {
