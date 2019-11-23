@@ -6,7 +6,7 @@
   "license": "",
   "main": "server/server.js",
   "scripts": {
-    "test": "jest",
+    "test": "mocha ./spec/index.test.js --exit",
     "start": "nodemon server.js",
     "react-dev": "webpack -d --watch"
   },
