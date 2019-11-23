@@ -30,3 +30,6 @@ const find = (roomsId, cb) => {
 };
 
 module.exports.find = find;
+//Test exports
+module.exports.photoSchema = photoSchema;
+module.exports.Photos = Photos;
