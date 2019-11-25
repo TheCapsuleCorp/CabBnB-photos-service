@@ -1,12 +1,11 @@
-//https://mongoosejs.com/docs/index.html
-const set = require('./complete.js');
-
+const mockData = require('./mockData.js');
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/photos', {useNewUrlParser: true});
-// const promise = require('bluebird');
 
+mongoose.connect('mongodb://localhost/photos', {useNewUrlParser: true});
 const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
+db.on('error', (err) => {
+  console.log(`Mongoose connection error: ${err}`);
+});
 
 const photoSchema = new mongoose.Schema({
   url: String,
@@ -15,8 +14,8 @@ const photoSchema = new mongoose.Schema({
 });
 
 const Photos = mongoose.model('Photos', photoSchema);
-//
-// Photos.insertMany(set, (err) => {
+
+// Photos.insertMany(mockData, (err) => {
 //   if (err) {
 //     console.log(err);
 //   } else {
@@ -25,26 +24,3 @@ const Photos = mongoose.model('Photos', photoSchema);
 //     });
 //   }
 // });
-
-
-
-
-const save = (photos, callback) => {
-  Photos.insertMany(photos, (err, docs) => {
-    if (err) {
-      console.log(err);
-    } else {
-      callback(null, docs);
-    }
-  });
-};
-
-// const findAsync = find.promisify();
-
-const find = (cb) => {
-  Photos.find({}).limit(25).sort({repoName: -1}).exec(cb);
-};
-
-
-module.exports.save = save;
-module.exports.find = find;

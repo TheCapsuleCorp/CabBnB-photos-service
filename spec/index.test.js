@@ -1,5 +1,3 @@
-// var request = require('request');
-// var mongoClient = require('mongodb').MongoClient;
 const expect = require('chai').expect;
 
 const getResponseS3 = require('./test-server.js').getResponseS3;
@@ -10,7 +8,6 @@ describe('First test', () => {
     expect(true).to.be.true;
   });
 });
-
 
 describe('Get string back from Get request to S3 object', () => {
   it('Returns a string', () => {

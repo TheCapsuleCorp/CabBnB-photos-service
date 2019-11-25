@@ -6,33 +6,30 @@ import { FaHeart } from 'react-icons/fa';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-
-    };
-    this.handleClick = this.handleClick.bind(this);
+    this.state = {};
+    this.handleClickTest = this.handleClickTest.bind(this);
   }
 
-  handleClick() {
-    console.log('click');
+  handleClickTest() {
+
   }
 
   render() {
     return (
       <div>
+
         <div className="parent">
           <div className="shareAndSaveContainer">
-            <div className="shareButton" onClick={this.handleClick}>
-              <a className="share" href="#"><FaBeer />  Share</a>
+            <div className="shareButton" onClick={this.handleClickTest}>
+              <span className="share homeScreenButton" href="#"><FaBeer />  Share</span>
             </div>
-            <div className="saveButton" onClick={this.handleClick}>
-              <a className="save" href="#"><FaHeart />  Save</a>
+            <div className="saveButton" onClick={this.handleClickTest}>
+              <span className="save homeScreenButton" href="#"><FaHeart />  Save</span>
             </div>
           </div>
 
-
-
-          <div className="viewPhotosButton" onClick={this.handleClick}>
-            <a href="https://www.airbnb.com/rooms/3447812/slideshow/?check_in=2019-11-22&check_out=2019-11-25&adults=2&children=0&infants=0">View Photos</a>
+          <div className="viewPhotosButton" onClick={this.handleClickTest}>
+            <span className="homeScreenButton">View Photos</span>
           </div>
         </div><br/><br/><br/>
 
