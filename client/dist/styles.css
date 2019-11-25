@@ -94,8 +94,6 @@
   background: #ffffff;
   color: #484848;
   text-decoration: none;
-  /* border-color: transparent; <--- may need to update this */
-  /* box-shadow: var(--shadow-button-level0-box-shadow, none); <--- may need to update this */
 }
 
 .photoDescription {

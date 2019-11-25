@@ -4,16 +4,17 @@
   "description": "",
   "author": "Landon Metcalf",
   "license": "",
-  "main": "server/server.js",
+  "main": "server/index.js",
   "scripts": {
-    "test": "mocha spec/index.test.js --timeout 10000 --exit",
-    "start": "nodemon server.js",
+    "test": "jest --forceExit --testTimeout 10000",
+    "start": "nodemon server/index.js",
     "react-dev": "webpack -d --watch"
   },
   "dependencies": {
     "@shelf/jest-mongodb": "^1.1.3",
     "axios": "^0.19.0",
     "express": "^4.17.1",
+    "jquery": "^3.4.1",
     "mongoose": "^5.7.12",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
@@ -26,10 +27,11 @@
     "@babel/preset-react": "^7.7.0",
     "babel-loader": "^8.0.6",
     "chai": "^4.2.0",
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
     "jest": "^24.9.0",
     "mocha": "^6.2.2",
+    "mongodb-memory-server": "^6.0.1",
     "webpack": "^4.41.2",
+    "supertest": "^4.0.2",
     "webpack-cli": "^3.3.10"
   }
 }

@@ -1,17 +1,17 @@
 const express = require('express');
 const parser = require('body-parser');
-const mongodb = require('../db');
+const path = require('path');
+// const db = require('../db');
+// db.connect();
 
 const app = express();
 
 app.use(parser.json());
-app.use(express.static('./client/dist'));
 app.use(parser.urlencoded({ extended: false }));
+app.use(express.static(`${__dirname}/../client/dist`));
 
 app.get('/', function (req, res) {
   res.send(200);
 });
 
-app.listen(8080, () => {
-  console.log('Successfully Connected to the Server on port 8080 - TEST attempt');
-});
+module.exports = app;
