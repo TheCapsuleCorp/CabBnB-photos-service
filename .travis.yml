@@ -2,6 +2,7 @@ language: node_js
 node_js: "node"
 services:
   - mongodb
+  - mongoose
 cache:
   directories:
     - "node_modules"

@@ -4,6 +4,7 @@ const getResponseS3 = require('./test-server.js').getResponseS3;
 
 const mongoose = require('mongoose');
 const Photos = require('../db/').Photos;
+const set = require('../db/complete.js');
 
 describe('First test', () => {
   it('Should assert true to be true', () => {
@@ -36,6 +37,16 @@ describe('Database Tests', function() {
   });
 
   describe('Photos Database', function() {
+
+    Photos.insertMany(set, (err) => {
+      if (err) {
+        console.log(err);
+      } else {
+        Photos.count({}, function (err, count) {
+          console.log('there are %d photos in collection', count);
+        });
+      }
+    });
 
     it('Should retrieve data from Photos database', function(done) {
       Photos.countDocuments({}, (err, items) => {
