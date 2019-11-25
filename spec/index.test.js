@@ -17,7 +17,6 @@ describe('Get request to S3 object', () => {
   it('Returns a string', () => {
     return getResponseS3()
       .then(response => {
-        // console.log(typeof response);
         //expect an string back
         expect(typeof response).to.equal('string');
       });

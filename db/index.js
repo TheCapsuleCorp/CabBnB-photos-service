@@ -15,15 +15,15 @@ const photoSchema = new mongoose.Schema({
 
 const Photos = mongoose.model('Photos', photoSchema);
 
-Photos.insertMany(set, (err) => { //<----Uncomment for pushing to Git 
-  if (err) {
-    console.log(err);
-  } else {
-    Photos.count({}, function (err, count) {
-      console.log('there are %d photos in collection', count);
-    });
-  }
-});
+// Photos.insertMany(set, (err) => { //<----Uncomment for pushing to Git 
+//   if (err) {
+//     console.log(err);
+//   } else {
+//     Photos.count({}, function (err, count) {
+//       console.log('there are %d photos in collection', count);
+//     });
+//   }
+// });
 
 const find = (roomsId, cb) => {
   Photos.find({roomId: roomsId}).exec(cb);
