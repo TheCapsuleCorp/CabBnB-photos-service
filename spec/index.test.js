@@ -13,16 +13,16 @@ describe('First test', () => {
 });
 
 
-// describe('Get request to S3 object', () => {
-//   it('Returns a string', () => {
-//     return getResponseS3()
-//       .then(response => {
-//         console.log(typeof response);
-//         //expect an string back
-//         expect(typeof response).to.equal('string');
-//       });
-//   });
-// });
+describe('Get request to S3 object', () => {
+  it('Returns a string', () => {
+    return getResponseS3()
+      .then(response => {
+        // console.log(typeof response);
+        //expect an string back
+        expect(typeof response).to.equal('string');
+      });
+  });
+});
 
 describe('Database Tests', function() {
 
@@ -37,16 +37,6 @@ describe('Database Tests', function() {
   });
 
   describe('Photos Database', function() {
-
-    // Photos.insertMany(set, (err) => {
-    //   if (err) {
-    //     console.log(err);
-    //   } else {
-    //     Photos.count({}, function (err, count) {
-    //       console.log('there are %d photos in collection', count);
-    //     });
-    //   }
-    // });
 
     it('Should retrieve data from Photos database', function(done) {
       Photos.countDocuments({}, (err, items) => {
