@@ -2,7 +2,6 @@ import React from 'react';
 import { FaBeer } from 'react-icons/fa';
 import { FaHeart } from 'react-icons/fa';
 
-
 class App extends React.Component {
   constructor(props) {
     super(props);

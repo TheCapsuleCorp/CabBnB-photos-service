@@ -15,12 +15,14 @@ const photoSchema = new mongoose.Schema({
 
 const Photos = mongoose.model('Photos', photoSchema);
 
-// Photos.insertMany(mockData, (err) => {
-//   if (err) {
-//     console.log(err);
-//   } else {
-//     Photos.count({}, function (err, count) {
-//       console.log('there are %d photos in collection', count);
-//     });
-//   }
-// });
+Photos.insertMany(mockData, (err) => {
+  if (err) {
+    console.log(err);
+  } else {
+    Photos.count({}, function (err, count) {
+      console.log('there are %d photos in collection', count);
+    });
+  }
+});
+
+module.exports.Photos = Photos;
