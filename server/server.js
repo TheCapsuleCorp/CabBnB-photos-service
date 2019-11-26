@@ -1,8 +1,6 @@
 const express = require('express');
 const parser = require('body-parser');
 const path = require('path');
-// const db = require('../db');
-// db.connect();
 
 const app = express();
 
