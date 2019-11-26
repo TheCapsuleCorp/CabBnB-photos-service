@@ -1,123 +1,182 @@
 @font-face {
-font-family: 'Airbnb Cereal App Book';
-font-style: normal;
-font-weight: normal;
-src: local('Airbnb Cereal App Book'), url('./fonts/airbnb-cereal-app-cufonfonts-woff/AirbnbCerealBook.woff') format('woff');
+  font-family: 'Airbnb Cereal App Book';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Airbnb Cereal App Book'), url('./fonts/airbnb-cereal-app-cufonfonts-woff/AirbnbCerealBook.woff') format('woff');
 }
 
 
 @font-face {
-font-family: 'Airbnb Cereal App Light';
-font-style: normal;
-font-weight: normal;
-src: local('Airbnb Cereal App Light'), url('./fonts/airbnb-cereal-app-cufonfonts-woff/AirbnbCerealLight.woff') format('woff');
-src: local('Airbnb Cereal App Light'), url('./fonts/airbnb-cereal-app-cufonfonts-ttf/AirbnbCerealLight.tff') format('tff');
+  font-family: 'Airbnb Cereal App Light';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Airbnb Cereal App Light'), url('./fonts/airbnb-cereal-app-cufonfonts-woff/AirbnbCerealLight.woff') format('woff');
+  src: local('Airbnb Cereal App Light'), url('./fonts/airbnb-cereal-app-cufonfonts-ttf/AirbnbCerealLight.tff') format('tff');
 }
 
 
 @font-face {
-font-family: 'Airbnb Cereal App Medium';
-font-style: normal;
-font-weight: normal;
-src: local('Airbnb Cereal App Medium'), url('./fonts/airbnb-cereal-app-cufonfonts-woff/AirbnbCerealMedium.woff') format('woff');
+  font-family: 'Airbnb Cereal App Medium';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Airbnb Cereal App Medium'), url('./fonts/airbnb-cereal-app-cufonfonts-woff/AirbnbCerealMedium.woff') format('woff');
 }
 
 
 @font-face {
-font-family: 'Airbnb Cereal App Bold';
-font-style: normal;
-font-weight: normal;
-src: local('Airbnb Cereal App Bold'), url('./fonts/airbnb-cereal-app-cufonfonts-woff/AirbnbCerealBold.woff') format('woff');
+  font-family: 'Airbnb Cereal App Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Airbnb Cereal App Bold'), url('./fonts/airbnb-cereal-app-cufonfonts-woff/AirbnbCerealBold.woff') format('woff');
 }
 
 
 @font-face {
-font-family: 'Airbnb Cereal App Extra Bold';
-font-style: normal;
-font-weight: normal;
-src: local('Airbnb Cereal App Extra Bold'), url('./fonts/airbnb-cereal-app-cufonfonts-woff/AirbnbCerealExtraBold.woff') format('woff');
+  font-family: 'Airbnb Cereal App Extra Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Airbnb Cereal App Extra Bold'), url('./fonts/airbnb-cereal-app-cufonfonts-woff/AirbnbCerealExtraBold.woff') format('woff');
 }
 
 
 @font-face {
-font-family: 'Airbnb Cereal App Black';
-font-style: normal;
-font-weight: normal;
-src: local('Airbnb Cereal App Black'), url('./fonts/airbnb-cereal-app-cufonfonts-woff/AirbnbCerealBlack.woff') format('woff');
+  font-family: 'Airbnb Cereal App Black';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Airbnb Cereal App Black'), url('./fonts/airbnb-cereal-app-cufonfonts-woff/AirbnbCerealBlack.woff') format('woff');
 }
 
-.parent{
+/* layout containers */
+body {
+  margin: 0;
+  padding-top: 25px;
+}
+.parent {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  border: solid 2px black;
+  height: 442px;
+  width: 100%;
+}
+
+.leftPhotoContainer {
+  display: flex;
+  height: 100%;
+  width: 50%;
+  background-color: #ded8c9;
+}
+
+.rightPhotosContainer{
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  background-color: blue;
-  border: solid 3px black;
-  height: 295px;
-  width: 100%;
-  background-image: url('../../hero-placeholder.png');
-  background-position: left;
-  background-size: contain;
-  background-repeat: no-repeat;
+  height: 100%;
+  width: 50%;
 }
 
+.rightTopPhotoContainer {
+  display: flex;
+  flex-direction: row;
+  height: 50%;
+  width: 100%;
+}
+
+.rightBottomPhotoContainer {
+  display: flex;
+  flex-direction: row;
+  height: 50%;
+  width: 100%;
+}
+
+.rightTopLeftPhoto {
+  height: 100%;
+  width: 50%;
+  background-color: ##80bbc5;
+}
+
+.rightTopRightPhoto {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 50%;
+  background-color: salmon;
+}
+
+.rightBottomLeftPhoto {
+  height: 100%;
+  width: 50%;
+  background-color: #9fcbd3;
+}
+
+.rightBottomRightPhoto {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 50%;
+  background-color: #c0dcaf;
+}
+
+
+
+/* buttons and button containers */
 .shareAndSaveContainer {
   display: flex;
-  flex-direction: row;
+  flex-direction: row-reverse;
+  margin-top: 35px;
   width: 100%;
-  margin-top: 3%;
-  padding-left: 77%;
 }
 
-.saveButton {
+.saveButtonContainer {
   margin-left: 20px;
+  margin-right: 30px;
 }
 
-.share {
+.shareButtonContainer {
 
 }
 
-.viewPhotosButton {
+.viewPhotosButtonContainer {
   display: flex;
-  flex-direction: row;
+  flex-direction: row-reverse;
   width: 100%;
-  margin-top: 20.5%;
-  padding-left: 85%;
-  /* box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.14);
-  align-self: baseline;
-  position: auto; */
-  /* right: 24px;
-  bottom: 24px; */
-  /* -webkit-transform: translateY(0);
-  -ms-transform: translateY(0);
-  transform: translateY(0); */
-  /* z-index: 1; */
-
+  margin-top: 160px;
 }
 
-a {
+.homeScreenButtons {
   border-radius: 4px;
   font-size: 14px;
   line-height: 22px;
   letter-spacing: normal;
-  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
-  text-transform: undefined;
+  font-family: 'Airbnb Cereal App Light', sans-serif;
   padding-top: 6px;
   padding-bottom: 6px;
   font-weight: 400;
-  border-width: var(--border-button-small-border-width, 1px);
-  padding-left: var(--spacing-button-small-horizontal, 15px);
-  padding-right: var(--spacing-button-small-horizontal, 15px);
-  box-shadow: var(--shadow-button-level0-box-shadow, none);
-  background: var(--color-buttons-inverse-color, #ffffff);
-  border-color: var(--color-buttons-inverse-border, transparent);
-  color: var(--color-buttons-inverse-text, #484848);
+  padding-left: 15px;
+  padding-right: 15px;
+  background: #ffffff;
+  color: #484848;
   text-decoration: none;
 }
 
+.view {
+  margin-right: 30px;
+}
+
+.share {
+  padding-top: 8.5px;
+  padding-bottom: 7px;
+}
+
+.save {
+  padding-top: 8.5px;
+  padding-bottom: 7px;
+}
+
+/* description font */
 .photoDescription {
   margin: 0px;
   word-wrap: break-word;
-  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+  font-family: 'Airbnb Cereal App Book', sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.375em;

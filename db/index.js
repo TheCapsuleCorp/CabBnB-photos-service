@@ -15,7 +15,7 @@ const photoSchema = new mongoose.Schema({
 
 const Photos = mongoose.model('Photos', photoSchema);
 
-// Photos.insertMany(set, (err) => { //<----Uncomment for pushing to Git 
+// Photos.insertMany(set, (err) => { //<----Uncomment for pushing to Git
 //   if (err) {
 //     console.log(err);
 //   } else {
