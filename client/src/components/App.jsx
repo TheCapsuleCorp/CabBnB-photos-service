@@ -40,8 +40,12 @@ class App extends React.Component {
 
   render() {
 
+
+
     return (
       <div>
+        <PhotoModal />
+
         <div className="parent">
           <Photo photoClass={'leftPhoto'} photoUrl={this.state.photosDetails[0]} />
           <div className="rightPhotosContainer">
@@ -80,6 +84,28 @@ class App extends React.Component {
 
       </div> /*starting div*/
     );
+  }
+}
+
+class PhotoModal extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      photosCarousel: [1,2,3,4],
+    };
+  }
+
+    render() {
+
+      return (
+        <div>
+          <div className="photoModuleParentContainer">
+
+
+          </div>{/*photoModuleParentContainer*/}
+
+        </div> /*starting div*/
+    )
   }
 }
 
