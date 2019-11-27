@@ -5,7 +5,6 @@
   src: local('Airbnb Cereal App Book'), url('./fonts/airbnb-cereal-app-cufonfonts-woff/AirbnbCerealBook.woff') format('woff');
 }
 
-
 @font-face {
   font-family: 'Airbnb Cereal App Light';
   font-style: normal;
@@ -14,14 +13,12 @@
   src: local('Airbnb Cereal App Light'), url('./fonts/airbnb-cereal-app-cufonfonts-ttf/AirbnbCerealLight.tff') format('tff');
 }
 
-
 @font-face {
   font-family: 'Airbnb Cereal App Medium';
   font-style: normal;
   font-weight: normal;
   src: local('Airbnb Cereal App Medium'), url('./fonts/airbnb-cereal-app-cufonfonts-woff/AirbnbCerealMedium.woff') format('woff');
 }
-
 
 @font-face {
   font-family: 'Airbnb Cereal App Bold';
@@ -30,14 +27,12 @@
   src: local('Airbnb Cereal App Bold'), url('./fonts/airbnb-cereal-app-cufonfonts-woff/AirbnbCerealBold.woff') format('woff');
 }
 
-
 @font-face {
   font-family: 'Airbnb Cereal App Extra Bold';
   font-style: normal;
   font-weight: normal;
   src: local('Airbnb Cereal App Extra Bold'), url('./fonts/airbnb-cereal-app-cufonfonts-woff/AirbnbCerealExtraBold.woff') format('woff');
 }
-
 
 @font-face {
   font-family: 'Airbnb Cereal App Black';
@@ -46,41 +41,112 @@
   src: local('Airbnb Cereal App Black'), url('./fonts/airbnb-cereal-app-cufonfonts-woff/AirbnbCerealBlack.woff') format('woff');
 }
 
-.parent{
+/* layout containers */
+body {
+  margin: 0;
+  padding-top: 25px;
+}
+
+.parent {
+  display: flex;
+  flex-direction: row;
+  border: solid 2px black;
+  height: 442px;
+  width: 100%;
+}
+
+.leftPhoto {
+  display: flex;
+  height: 100%;
+  width: 50%;
+  background-color: #ded8c9;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.rightPhotosContainer{
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  background-color: blue;
-  border: solid 3px black;
-  height: 295px;
-  width: 100%;
-  background-image: url('../../hero-placeholder.png');
-  background-position: left;
-  background-size: contain;
-  background-repeat: no-repeat;
+  height: 100%;
+  width: 50%;
 }
 
+.rightTopPhotoContainer {
+  display: flex;
+  flex-direction: row;
+  height: 50%;
+  width: 100%;
+}
+
+.rightBottomPhotoContainer {
+  display: flex;
+  flex-direction: row;
+  height: 50%;
+  width: 100%;
+}
+
+.rightTopLeftPhoto {
+  height: 100%;
+  width: 50%;
+  background-color: ##80bbc5;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.rightTopRightPhoto {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 50%;
+  background-color: salmon;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.rightBottomLeftPhoto {
+  height: 100%;
+  width: 50%;
+  background-color: #9fcbd3;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.rightBottomRightPhoto {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 50%;
+  background-color: #c0dcaf;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+/* buttons and button containers */
 .shareAndSaveContainer {
   display: flex;
-  flex-direction: row;
+  flex-direction: row-reverse;
+  margin-top: 35px;
   width: 100%;
-  margin-top: 3%;
-  padding-left: 77%;
 }
 
-.saveButton {
+.saveButtonContainer {
   margin-left: 20px;
+  margin-right: 30px;
 }
 
-.viewPhotosButton {
+.viewPhotosButtonContainer {
   display: flex;
-  flex-direction: row;
+  flex-direction: row-reverse;
   width: 100%;
-  margin-top: 20.5%;
-  padding-left: 85%;
+  margin-top: 160px;
 }
 
-.homeScreenButton {
+.homeScreenButtons {
   border-radius: 4px;
   font-size: 14px;
   line-height: 22px;
@@ -96,6 +162,21 @@
   text-decoration: none;
 }
 
+.view {
+  margin-right: 30px;
+}
+
+.share {
+  padding-top: 8.5px;
+  padding-bottom: 7px;
+}
+
+.save {
+  padding-top: 8.5px;
+  padding-bottom: 7px;
+}
+
+/* description font */
 .photoDescription {
   margin: 0px;
   word-wrap: break-word;

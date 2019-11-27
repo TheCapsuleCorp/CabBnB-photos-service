@@ -8,8 +8,12 @@ app.use(parser.json());
 app.use(parser.urlencoded({ extended: false }));
 app.use(express.static(`${__dirname}/../client/dist`));
 
-app.get('/', function (req, res) {
-  res.send(200);
+app.get('/rooms', function (req, res) {
+  res.sendFile(path.resolve(__dirname, '../client/dist/index.html'));
 });
+
+const apiRouter = require('./apiRouter');
+
+app.use('/api', apiRouter);
 
 module.exports = app;
