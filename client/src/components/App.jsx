@@ -64,4 +64,26 @@ class App extends React.Component {
   }
 }
 
+class PhotoModal extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      photosCarousel: [1,2,3,4],
+    };
+  }
+
+    render() {
+
+      return (
+        <div>
+          <div className="photoModuleParentContainer">
+
+
+          </div>{/*photoModuleParentContainer*/}
+
+        </div> /*starting div*/
+    )
+  }
+}
+
 export default App;
