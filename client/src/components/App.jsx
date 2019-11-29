@@ -4,13 +4,13 @@ import $ from 'jquery';
 import Photo from './Photo.jsx';
 import Content from './Content.jsx';
 
-
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       photos: [],
       showContent: false,
+      photoButtonClick: false,
     };
     this.handleViewPhotosButtonClick = this.handleViewPhotosButtonClick.bind(this);
   }
@@ -46,28 +46,6 @@ class App extends React.Component {
         {content}
       </div>
     );
-  }
-}
-
-class PhotoModal extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      photosCarousel: [1,2,3,4],
-    };
-  }
-
-    render() {
-
-      return (
-        <div>
-          <div className="photoModuleParentContainer">
-
-
-          </div>{/*photoModuleParentContainer*/}
-
-        </div> /*starting div*/
-    )
   }
 }
 
