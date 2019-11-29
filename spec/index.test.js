@@ -1,7 +1,5 @@
 const expect = require('chai').expect;
 
-const getResponseFromS3 = require('./getResponseFromS3.js').getResponseFromS3;
-
 const db = require('../db/');
 const fs = require('fs');
 const { MongoMemoryServer } = require('mongodb-memory-server');
@@ -17,16 +15,7 @@ const mockData =   {
     roomId: 4160333
   };
 
-describe('Send successful GET request to S3 bucket - indicating photo URLs are publicly accessible', () => {
-  it('Returns a string', () => {
-    return getResponseFromS3()
-      .then(response => {
-        expect(typeof response).to.equal('string');
-      });
-  });
-});
-
-describe('Database Tests', () => {
+describe('Database Tests with Server', () => {
   const app = require('../server/server.js');
   let agent, memMongo, server;
   beforeAll(async (done) => {
@@ -41,33 +30,57 @@ describe('Database Tests', () => {
     await Photos.create(mockData);
 
     server = await app.listen(4000, (err) => {
-    if (err) {
-     return done(err);
-    }
+      if (err) {
+       return done(err);
+      }
 
-    agent = request.agent(server); // since the application is already listening, it should use the allocated port
-    done();
+      agent = request.agent(server); // since the application is already listening, it should use the allocated port
+      done();
     });
   });
+
   afterAll(async function(done){
     await mongoose.disconnect();
     return server && await server.close(done);
   });
 
-  it('Should retrieve data from Photos database', function(done) {
-    Photos.countDocuments({}, (err, items) => {
-      if(err) {throw err;}
-      expect(items).equal(2);
+  test('Should retrieve the correct document from the database based on roomID', function(done) {
+    Photos.find({roomId: 4160333}, (err, data) => {
+      if (err) { throw err; }
+      expect(data[0].description).to.equal('Lorem ipsum dolor sit amet, consectetur adipiscing elit');
       done();
     });
   });
 
-  it('Should retrieve the correct amount of dcouments from the database', function(done) {
-    Photos.countDocuments({}, (err, items) => {
-      if(err) {throw err;}
-      expect(items).equal(2);
-      done();
-    });
+  test('Should correct amount of photo records from DB on GET requests to /api/rooms/:roomId/', async () => {
+    const res = await request(server).get('/api/rooms/4160333/photos');
+    expect(res.body[0].roomId).to.equal(4160333);
+    expect(res.body.length).to.equal(2);
+    expect(res.statusCode).to.equal(200);
   });
 
+  test('Should respond with an error to invalid paths', async () => {
+    const res = await request(server).get('/stays');
+    expect(res.statusCode).to.equal(404);
+  });
+
+  test('Should respond with a 405 Method Not Allowed to POST requests to /api/rooms/:roomId/', async () => {
+    const res = await request(server).post('/api/rooms/4160333/photos');
+    expect(res.statusCode).to.equal(405);
+  });
+
+  test('Should respond with a 405 Method Not Allowed to PUT requests to /api/rooms/:roomId/', async () => {
+    const res = await request(server).put('/api/rooms/4160333/photos');
+    expect(res.statusCode).to.equal(405);
+  });
+
+  test('Should respond with a 405 Method Not Allowed to PATCH requests to /api/rooms/:roomId/', async () => {
+    const res = await request(server).patch('/api/rooms/4160333/photos');
+    expect(res.statusCode).to.equal(405);
+  });
+
+  test('Should respond with a 405 Method Not Allowed to DELETE requests to /api/rooms/:roomId/', async () => {
+    const res = await request(server).delete('/api/rooms/4160333/photos');
+    expect(res.statusCode).to.equal(405);
+  });
 });

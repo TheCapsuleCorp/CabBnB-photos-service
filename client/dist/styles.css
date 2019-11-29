@@ -1,91 +1,157 @@
 @font-face {
-  font-family: 'Airbnb Cereal App Book';
+  font-family: 'Cereal';
   font-style: normal;
   font-weight: normal;
   src: local('Airbnb Cereal App Book'), url('./fonts/airbnb-cereal-app-cufonfonts-woff/AirbnbCerealBook.woff') format('woff');
 }
 
-
 @font-face {
-  font-family: 'Airbnb Cereal App Light';
+  font-family: 'Cereal';
   font-style: normal;
-  font-weight: normal;
-  src: local('Airbnb Cereal App Light'), url('./fonts/airbnb-cereal-app-cufonfonts-woff/AirbnbCerealLight.woff') format('woff');
-  src: local('Airbnb Cereal App Light'), url('./fonts/airbnb-cereal-app-cufonfonts-ttf/AirbnbCerealLight.tff') format('tff');
+  font-weight: 300;
+  src:  local('Airbnb Cereal App Light'), url('./fonts/airbnb-cereal-app-cufonfonts-woff/AirbnbCerealLight.woff') format('woff'),
+        local('Airbnb Cereal App Light'), url('./fonts/airbnb-cereal-app-cufonfonts-ttf/AirbnbCerealLight.tff') format('tff');
 }
 
-
 @font-face {
-  font-family: 'Airbnb Cereal App Medium';
+  font-family: 'Cereal';
   font-style: normal;
-  font-weight: normal;
+  font-weight: 500;
   src: local('Airbnb Cereal App Medium'), url('./fonts/airbnb-cereal-app-cufonfonts-woff/AirbnbCerealMedium.woff') format('woff');
 }
 
-
 @font-face {
-  font-family: 'Airbnb Cereal App Bold';
+  font-family: 'Cereal';
   font-style: normal;
-  font-weight: normal;
+  font-weight: bold;
   src: local('Airbnb Cereal App Bold'), url('./fonts/airbnb-cereal-app-cufonfonts-woff/AirbnbCerealBold.woff') format('woff');
 }
 
-
 @font-face {
-  font-family: 'Airbnb Cereal App Extra Bold';
+  font-family: 'Cereal';
   font-style: normal;
-  font-weight: normal;
+  font-weight: 800;
   src: local('Airbnb Cereal App Extra Bold'), url('./fonts/airbnb-cereal-app-cufonfonts-woff/AirbnbCerealExtraBold.woff') format('woff');
 }
 
-
 @font-face {
-  font-family: 'Airbnb Cereal App Black';
+  font-family: 'Cereal';
   font-style: normal;
-  font-weight: normal;
+  font-weight: 900;
   src: local('Airbnb Cereal App Black'), url('./fonts/airbnb-cereal-app-cufonfonts-woff/AirbnbCerealBlack.woff') format('woff');
 }
 
-.parent{
+/* layout containers */
+body {
+  margin: 0;
+  padding-top: 25px;
+}
+
+.parent {
+  display: flex;
+  flex-direction: row;
+  border: solid 2px black;
+  height: 442px;
+  width: 100%;
+}
+
+.leftPhoto {
+  display: flex;
+  height: 100%;
+  width: 50%;
+  background-color: #ded8c9;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.rightPhotosContainer{
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  background-color: blue;
-  border: solid 3px black;
-  height: 295px;
-  width: 100%;
-  background-image: url('../../hero-placeholder.png');
-  background-position: left;
-  background-size: contain;
-  background-repeat: no-repeat;
+  height: 100%;
+  width: 50%;
 }
 
+.rightTopPhotoContainer {
+  display: flex;
+  flex-direction: row;
+  height: 50%;
+  width: 100%;
+}
+
+.rightBottomPhotoContainer {
+  display: flex;
+  flex-direction: row;
+  height: 50%;
+  width: 100%;
+}
+
+.rightTopLeftPhoto {
+  height: 100%;
+  width: 50%;
+  background-color: #80bbc5;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.rightTopRightPhoto {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 50%;
+  background-color: salmon;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.rightBottomLeftPhoto {
+  height: 100%;
+  width: 50%;
+  background-color: #9fcbd3;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.rightBottomRightPhoto {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 50%;
+  background-color: #c0dcaf;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+/* buttons and button containers */
 .shareAndSaveContainer {
   display: flex;
-  flex-direction: row;
+  flex-direction: row-reverse;
+  margin-top: 35px;
   width: 100%;
-  margin-top: 3%;
-  padding-left: 77%;
 }
 
-.saveButton {
+.saveButtonContainer {
   margin-left: 20px;
+  margin-right: 30px;
 }
 
-.viewPhotosButton {
+.viewPhotosButtonContainer {
   display: flex;
-  flex-direction: row;
+  flex-direction: row-reverse;
   width: 100%;
-  margin-top: 20.5%;
-  padding-left: 85%;
+  margin-top: 160px;
 }
 
-.homeScreenButton {
+.homeScreenButtons {
   border-radius: 4px;
   font-size: 14px;
   line-height: 22px;
   letter-spacing: normal;
-  font-family: 'Airbnb Cereal App Light', sans-serif;
+  font-family: 'Cereal', sans-serif;
   padding-top: 6px;
   padding-bottom: 6px;
   font-weight: 400;
@@ -96,6 +162,21 @@
   text-decoration: none;
 }
 
+.view {
+  margin-right: 30px;
+}
+
+.share {
+  padding-top: 8.5px;
+  padding-bottom: 7px;
+}
+
+.save {
+  padding-top: 8.5px;
+  padding-bottom: 7px;
+}
+
+/* description text */
 .photoDescription {
   margin: 0px;
   word-wrap: break-word;
@@ -104,4 +185,101 @@
   font-weight: 400;
   line-height: 1.375em;
   color: #484848;
+}
+
+/*photo pop-up module */
+.photoModuleParentContainer {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background-color: white;
+}
+
+/*left photo module container details*/
+.photoModuleLeftContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 100%
+}
+
+.photoModuleLeftArrowContainer {
+  display: flex;
+  flex-direction: column-reverse;
+  height: 100%;
+  margin-left: 75px;
+}
+
+.photoModuleLeftArrow {
+  height: 52.5%;
+}
+
+.photoModuleRightArrowContainer {
+  display: flex;
+  flex-direction: column-reverse;
+  height: 100%;
+}
+
+.photoModuleRightArrow {
+  height: 52.5%;
+}
+
+.photoModuleMainPhotoContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  margin-left: 3%;
+  margin-right: 3%;
+}
+
+.photoModuleMainPhoto {
+  height: 64%;
+  width: 90%;
+  background-color: salmon;
+  align-self: center;
+}
+
+.modalPhoto {
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.FaChevronLeft {
+  font-size: 30px;
+}
+
+.FaChevronRight {
+  font-size: 30px;
+}
+
+.FaTimes{
+  font-size: 50px;
+}
+
+/*right photo module container details*/
+.photoModuleRightContainer {
+  display: flex;
+  flex-direction: column;
+  width: 412px;
+}
+
+.photoModuleExitButtonContainer {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 100%;
+  margin-top: 45px;
+}
+
+.photoModuleExitButton {
+  margin-right: 45px;
 }

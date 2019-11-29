@@ -7,6 +7,7 @@ const connect = () => {
   db.on('error', (err) => {
     console.log(`Mongoose connection error: ${err}`);
   });
+  return db;
 };
 
 const photoSchema = new mongoose.Schema({

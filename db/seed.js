@@ -1,17 +1,13 @@
-const db = require('./index');
+const db = require('./index.js');
 const mockData = require('./mockData.js');
 const mongoose = require('mongoose');
 
 db.connect().then(() => {
-  return db.Photos.insertMany(mockData, (err) => {
-    if (err) {
-      console.log(err);
-    } else {
-      Photos.count({}, function (err, count) {
-        console.log('there are %d photos in collection', count);
-      });
-    }
-  });
+  return db.Photos.insertMany(mockData);
+}).then(() => {
+  return db.Photos.count({});
+}).then((count) => {
+  console.log('there are %d photos in collection', count);
 }).then(() => {
   return mongoose.connection.close();
 }).catch(err => {
