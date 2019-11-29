@@ -1,34 +1,34 @@
 import React from 'react';
 import $ from 'jquery';
-import { FaBeer } from 'react-icons/fa';
-import { FaHeart } from 'react-icons/fa';
 
 import Photo from './Photo.jsx';
+import Content from './Content.jsx';
+
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       photos: [],
+      showContent: false,
     };
-    this.handleShareButtonClick = this.handleShareButtonClick.bind(this);
     this.handleViewPhotosButtonClick = this.handleViewPhotosButtonClick.bind(this);
   }
 
-  handleShareButtonClick() {
-
-  }
   handleViewPhotosButtonClick() {
-
+    this.setState({
+      photoButtonClick: !this.state.photoButtonClick
+    })
   }
 
   componentDidMount() {
     $.ajax({
-      url: `/api/rooms/${this.props.roomId}`,
+      url: `/api/rooms/${this.props.roomId}/photos`,
       method: 'GET',
       success: (photos) => {
         this.setState({
-          photos: photos
+          photos: photos,
+          showContent: true,
         });
       },
       error: (err) => {
@@ -38,45 +38,12 @@ class App extends React.Component {
   }
 
   render() {
+    const { showContent } = this.state;
+    let content = showContent ? <Content photos={this.state.photos} viewPhotosButton={this.handleViewPhotosButtonClick}/> : null;
 
     return (
       <div>
-        <div className="parent">
-          <Photo photoClass={'leftPhoto'} photoUrl={this.state.photos[0]} />
-          <div className="rightPhotosContainer">
-            <div className="rightTopPhotoContainer">
-              <Photo photoClass={'rightTopLeftPhoto'} photoUrl={this.state.photos[1]} />
-              <Photo photoClass={'rightTopRightPhoto'} photoUrl={this.state.photos[2]}>
-                <div className="shareAndSaveContainer">
-                  <div className="saveButtonContainer">
-                    <span className="save homeScreenButtons" href="#"><FaHeart />  Save</span>
-                  </div> {/*saveButtonContainer*/}
-
-                  <div className="shareButtonContainer" onClick={this.handleShareButtonClick}>
-                    <span className="share homeScreenButtons" href="#"><FaBeer />  Share</span>
-                  </div> {/*shareButtonContainer*/}
-
-                </div> {/*shareAndSaveContainer*/}
-
-              </Photo> {/*rightTopRightPhoto*/}
-
-            </div> {/*RightTopPhotoContainer*/}
-
-            <div className="rightBottomPhotoContainer">
-              <Photo photoClass={'rightBottomLeftPhoto'} photoUrl={this.state.photos[3]} />
-              <Photo photoClass={'rightBottomRightPhoto'} photoUrl={this.state.photos[4]}>
-                <div className="viewPhotosButtonContainer" onClick={this.handleViewPhotosButtonClick}>
-                  <span className="view homeScreenButtons">View Photos</span>
-                </div> {/*viewPhotosButtonContainer*/}
-
-              </Photo> {/*rightBottomRightPhoto*/}
-
-            </div> {/*rightBottomPhotoContainer*/}
-
-          </div> {/*rightPhotosContainer*/}
-
-        </div> {/*parent*/}
-
+        {content}
       </div> /*starting div*/
     );
   }

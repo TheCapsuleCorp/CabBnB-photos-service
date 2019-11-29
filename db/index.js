@@ -18,12 +18,7 @@ const photoSchema = new mongoose.Schema({
 
 const Photos = mongoose.model('Photos', photoSchema);
 
-const find = (roomsId, cb) => {
-  Photos.find({roomId: roomsId}).exec(cb);
-};
-
 module.exports = {
   connect,
-  find,
   Photos,
 };

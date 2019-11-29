@@ -44,12 +44,19 @@ describe('Database Tests with Server', () => {
     return server && await server.close(done);
   });
 
-  test('Should retrieve the correct amount of dcouments from the database', function(done) {
-    Photos.countDocuments({}, (err, items) => {
-      if(err) {throw err;}
-      expect(items).to.equal(2);
+  test('Should retrieve the correct document from the database based on roomID', function(done) {
+    Photos.find({roomId: 4160333}, (err, data) => {
+      if (err) { throw err; }
+      expect(data[0].description).to.equal('Lorem ipsum dolor sit amet, consectetur adipiscing elit');
       done();
     });
+  });
+
+  test('Should correct amount of photo records from DB on GET requests to /api/rooms/:roomId/', async () => {
+    const res = await request(server).get('/api/rooms/4160333/photos');
+    expect(res.body[0].roomId).to.equal(4160333);
+    expect(res.body.length).to.equal(2);
+    expect(res.statusCode).to.equal(200);
   });
 
   test('Should respond with an error to invalid paths', async () => {
@@ -58,29 +65,22 @@ describe('Database Tests with Server', () => {
   });
 
   test('Should respond with a 405 Method Not Allowed to POST requests to /api/rooms/:roomId/', async () => {
-    const res = await request(server).post('/api/rooms/4160333/');
+    const res = await request(server).post('/api/rooms/4160333/photos');
     expect(res.statusCode).to.equal(405);
   });
 
   test('Should respond with a 405 Method Not Allowed to PUT requests to /api/rooms/:roomId/', async () => {
-    const res = await request(server).put('/api/rooms/4160333/');
+    const res = await request(server).put('/api/rooms/4160333/photos');
     expect(res.statusCode).to.equal(405);
   });
 
   test('Should respond with a 405 Method Not Allowed to PATCH requests to /api/rooms/:roomId/', async () => {
-    const res = await request(server).patch('/api/rooms/4160333/');
+    const res = await request(server).patch('/api/rooms/4160333/photos');
     expect(res.statusCode).to.equal(405);
   });
 
   test('Should respond with a 405 Method Not Allowed to DELETE requests to /api/rooms/:roomId/', async () => {
-    const res = await request(server).delete('/api/rooms/4160333/');
+    const res = await request(server).delete('/api/rooms/4160333/photos');
     expect(res.statusCode).to.equal(405);
   });
-
-  test('Should correct amount of photo records from DB on GET requests to /api/rooms/:roomId/', async () => {
-    const res = await request(server).get('/api/rooms/4160333');
-    expect(res.body[0].roomId).to.equal(4160333);
-    expect(res.body.length).to.equal(2);
-  });
-
 });
