@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Photo = (props) => {
-  let photoUrl = props.photoUrl ? props.photoUrl.url : null;
+  let photoUrl = props.photoUrl ? props.photoUrl.url : 'http://blank.org/';
 
   var divStyle = {
     backgroundImage: 'url(' + photoUrl + ')',

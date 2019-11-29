@@ -1,15 +1,18 @@
 import React from 'react';
 import $ from 'jquery';
-import { FaBeer } from 'react-icons/fa';
-import { FaHeart } from 'react-icons/fa';
 
 import Photo from './Photo.jsx';
+import PhotoModal from './PhotoModal.jsx';
+import Content from './Content.jsx';
+
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      photosDetails: [],
+      photosToRender: [],
+      photoButtonClick: false,
+      showContent: false,
     };
     this.handleShareButtonClick = this.handleShareButtonClick.bind(this);
     this.handleViewPhotosButtonClick = this.handleViewPhotosButtonClick.bind(this);
@@ -18,18 +21,21 @@ class App extends React.Component {
   handleShareButtonClick() {
 
   }
+  
   handleViewPhotosButtonClick() {
-
+    this.setState({
+      photoButtonClick: !this.state.photoButtonClick
+    })
   }
 
   componentDidMount() {
-    console.log('component mounted');
     $.ajax({
-      url: `api/rooms/${this.props.roomId}`,
+      url: `/api/rooms/${this.props.roomId}`,
       method: 'GET',
-      success: (photosDetails) => {
+      success: (photosToRender) => {
         this.setState({
-          photosDetails: photosDetails
+          photosToRender: photosToRender,
+          showContent: true,
         });
       },
       error: (err) => {
@@ -39,73 +45,25 @@ class App extends React.Component {
   }
 
   render() {
+    const { showContent } = this.state;
+    let content = showContent ? <Content photoUrl={this.state.photosToRender} viewPhotosButton={this.handleViewPhotosButtonClick}/> : null;
 
+    const isViewPhotoButtonClicked = this.state.photoButtonClick;
+    let photoModal;
 
+    if (isViewPhotoButtonClicked) {
+      photoModal = <PhotoModal photoButtonClick={this.handleViewPhotosButtonClick} photoDetails={this.state.photosToRender}/>;
+    } else {
+      photoModal = <span />;
+    }
 
     return (
       <div>
-        <PhotoModal />
-
-        <div className="parent">
-          <Photo photoClass={'leftPhoto'} photoUrl={this.state.photosDetails[0]} />
-          <div className="rightPhotosContainer">
-            <div className="rightTopPhotoContainer">
-              <Photo photoClass={'rightTopLeftPhoto'} photoUrl={this.state.photosDetails[1]} />
-              <Photo photoClass={'rightTopRightPhoto'} photoUrl={this.state.photosDetails[2]}>
-                <div className="shareAndSaveContainer">
-                  <div className="saveButtonContainer">
-                    <span className="save homeScreenButtons" href="#"><FaHeart />  Save</span>
-                  </div> {/*saveButtonContainer*/}
-
-                  <div className="shareButtonContainer" onClick={this.handleShareButtonClick}>
-                    <span className="share homeScreenButtons" href="#"><FaBeer />  Share</span>
-                  </div> {/*shareButtonContainer*/}
-
-                </div> {/*shareAndSaveContainer*/}
-
-              </Photo> {/*rightTopRightPhoto*/}
-
-            </div> {/*RightTopPhotoContainer*/}
-
-            <div className="rightBottomPhotoContainer">
-              <Photo photoClass={'rightBottomLeftPhoto'} photoUrl={this.state.photosDetails[3]} />
-              <Photo photoClass={'rightBottomRightPhoto'} photoUrl={this.state.photosDetails[4]}>
-                <div className="viewPhotosButtonContainer" onClick={this.handleViewPhotosButtonClick}>
-                  <span className="view homeScreenButtons">View Photos</span>
-                </div> {/*viewPhotosButtonContainer*/}
-
-              </Photo> {/*rightBottomRightPhoto*/}
-
-            </div> {/*rightBottomPhotoContainer*/}
-
-          </div> {/*rightPhotosContainer*/}
-
-        </div> {/*parent*/}
+        {photoModal}
+        {content}
 
       </div> /*starting div*/
     );
-  }
-}
-
-class PhotoModal extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      photosCarousel: [1,2,3,4],
-    };
-  }
-
-    render() {
-
-      return (
-        <div>
-          <div className="photoModuleParentContainer">
-
-
-          </div>{/*photoModuleParentContainer*/}
-
-        </div> /*starting div*/
-    )
   }
 }
 
