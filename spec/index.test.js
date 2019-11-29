@@ -9,7 +9,7 @@ const request = require('supertest');
 
 const Photos = db.Photos;
 
-const mockData =   {
+const mockData = {
     url: 'https://cap-bnb-photo-service.s3.us-east-2.amazonaws.com/1-stream-belmont-3.jpg',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
     roomId: 4160333

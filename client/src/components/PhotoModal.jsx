@@ -43,7 +43,6 @@ class PhotoModal extends React.Component {
 
           <div className="photoModuleRightContainer">
             <div className="photoModuleExitButtonContainer">
-
               <div className="photoModuleExitButton" onClick={this.props.photoButtonClick}>
                 <span className="FaTimes"> <FaTimes /> </span>
               </div> {/*photoModuleExitButton*/}
@@ -51,23 +50,11 @@ class PhotoModal extends React.Component {
             </div> {/*photoModuleExitButtonContainer*/}
 
             <div className="photoModuleCarouselContainer">
-              <div className="photoModuleCarousel">
-
-
-              </div> {/*photoModuleCarousel*/}
+              <PhotoModuleCarousel photos={this.props.photoDetails} />
 
             </div> {/*photoModuleCarouselContainer*/}
 
-            <div className="photoModuleDescriptionContainer">
-              <div className="photoModulePhotoNumber">
-
-              </div> {/*photoModulePhotoNumber*/}
-
-              <div className="photoModulePhotoDescription">
-
-              </div> {/*photoModulePhotoDescription*/}
-
-            </div> {/*photoModuleDescriptionContainer*/}
+            <PhotoModuleDescriptionContainer photos={this.props.photoDetails} />
 
           </div> {/*photoModuleRightContainer*/}
 
@@ -77,5 +64,31 @@ class PhotoModal extends React.Component {
     )
   }
 }
+
+const PhotoModuleCarousel = (props) => {
+  let carouselPhotos = props.photos.map((photo, i) => {
+    return <Photo photoClass={'carouselPhoto'} photoUrl={photo} key={i}/>
+  })
+  return (
+    <div className="photoModuleCarousel">
+      {carouselPhotos}
+    </div>
+  );
+};
+
+const PhotoModuleDescriptionContainer = (props) => {
+  let count = props.photos.length;
+  let description = props.photos.length ? props.photos[0].description : "";
+  return (
+    <div className="photoModuleDescriptionContainer">
+      <div className="photoModulePhotoNumber">
+        {`${count} / ${count}`}
+      </div>
+      <div className="photoModulePhotoDescription">
+        {description}
+      </div>
+    </div>
+  );
+};
 
 export default PhotoModal;
