@@ -59,3 +59,16 @@ typings/
 
 # next.js build output
 .next
+
+# .DS_Store
+.DS_Store
+
+# client dist directory
+client/dist/bundle.js
+client/dist/*.gif
+client/dist/*.jpg
+client/dist/*.png
+client/dist/*.svg
+
+# Assets
+assets

@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Photos should render Photo component 1`] = `
+<div
+  className="leftPhoto"
+  style={
+    Object {
+      "backgroundImage": "url(undefined)",
+    }
+  }
+/>
+`;
