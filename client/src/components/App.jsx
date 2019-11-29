@@ -15,6 +15,13 @@ class App extends React.Component {
     this.handleViewPhotosButtonClick = this.handleViewPhotosButtonClick.bind(this);
   }
 
+<<<<<<< HEAD
+=======
+  handleShareButtonClick() {
+
+  }
+
+>>>>>>> update photo modal to dynamically render carousel photos, add description and photo number placeholder
   handleViewPhotosButtonClick() {
     this.setState({
       photoButtonClick: !this.state.photoButtonClick,
@@ -44,7 +51,11 @@ class App extends React.Component {
     return (
       <div>
         {content}
+<<<<<<< HEAD
       </div>
+=======
+      </div> /*starting div*/
+>>>>>>> update photo modal to dynamically render carousel photos, add description and photo number placeholder
     );
   }
 }
