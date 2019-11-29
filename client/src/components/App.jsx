@@ -17,8 +17,8 @@ class App extends React.Component {
 
   handleViewPhotosButtonClick() {
     this.setState({
-      photoButtonClick: !this.state.photoButtonClick
-    })
+      photoButtonClick: !this.state.photoButtonClick,
+    });
   }
 
   componentDidMount() {
@@ -39,12 +39,12 @@ class App extends React.Component {
 
   render() {
     const { showContent } = this.state;
-    let content = showContent ? <Content photos={this.state.photos} viewPhotosButton={this.handleViewPhotosButtonClick}/> : null;
+    let content = showContent ? <Content photos={this.state.photos} handleViewPhotosButtonClick={this.handleViewPhotosButtonClick}/> : null;
 
     return (
       <div>
         {content}
-      </div> /*starting div*/
+      </div>
     );
   }
 }
