@@ -3,44 +3,42 @@ import { FaBeer } from 'react-icons/fa';
 import { FaHeart } from 'react-icons/fa';
 import Photo from './Photo.jsx';
 
-const Content = (props) => {
-  return (
-    <div className="parent">
-      <Photo photoClass={'leftPhoto'} photoUrl={props.photos[0]} />
-      <div className="rightPhotosContainer">
-        <div className="rightTopPhotoContainer">
-          <Photo photoClass={'rightTopLeftPhoto'} photoUrl={props.photos[1]} />
-          <Photo photoClass={'rightTopRightPhoto'} photoUrl={props.photos[2]}>
-            <div className="shareAndSaveContainer">
-              <div className="saveButtonContainer">
-                <span className="save homeScreenButtons"><FaHeart />  Save</span>
-              </div> {/*saveButtonContainer*/}
+const Content = (props) => (
+  <div className="parent">
+    <Photo photoClass={'leftPhoto'} photoUrl={props.photos[0]} />
+    <div className="rightPhotosContainer">
+      <div className="rightTopPhotoContainer">
+        <Photo photoClass={'rightTopLeftPhoto'} photoUrl={props.photos[1]} />
+        <Photo photoClass={'rightTopRightPhoto'} photoUrl={props.photos[2]}>
+          <div className="shareAndSaveContainer">
+            <div className="saveButtonContainer">
+              <span className="save homeScreenButton"><FaHeart />  Save</span>
+            </div>
 
-              <div className="shareButtonContainer" onClick={props.handleShareButtonClick}>
-                <span className="share homeScreenButtons"><FaBeer />  Share</span>
-              </div> {/*shareButtonContainer*/}
+            <div className="shareButtonContainer" onClick={props.handleShareButtonClick}>
+              <span className="share homeScreenButton"><FaBeer />  Share</span>
+            </div>
 
-            </div> {/*shareAndSaveContainer*/}
+          </div>
 
-          </Photo> {/*rightTopRightPhoto*/}
+        </Photo>
 
-        </div> {/*RightTopPhotoContainer*/}
+      </div>
 
-        <div className="rightBottomPhotoContainer">
-          <Photo photoClass={'rightBottomLeftPhoto'} photoUrl={props.photos[3]} />
-          <Photo photoClass={'rightBottomRightPhoto'} photoUrl={props.photos[4]}>
-            <div className="viewPhotosButtonContainer" onClick={props.viewPhotosButton}>
-              <span className="view homeScreenButtons">View Photos</span>
-            </div> {/*viewPhotosButtonContainer*/}
+      <div className="rightBottomPhotoContainer">
+        <Photo photoClass={'rightBottomLeftPhoto'} photoUrl={props.photos[3]} />
+        <Photo photoClass={'rightBottomRightPhoto'} photoUrl={props.photos[4]}>
+          <div className="viewPhotosButtonContainer" onClick={props.handleViewPhotosButtonClick}>
+            <span className="view homeScreenButton">View Photos</span>
+          </div>
 
-          </Photo> {/*rightBottomRightPhoto*/}
+        </Photo>
 
-        </div> {/*rightBottomPhotoContainer*/}
+      </div>
 
-      </div> {/*rightPhotosContainer*/}
+    </div>
 
-    </div> /*parent*/
-  );
-};
+  </div>
+);
 
 export default Content;
