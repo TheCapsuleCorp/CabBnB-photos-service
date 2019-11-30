@@ -10,6 +10,33 @@ class PhotoModal extends React.Component {
     this.state = {
       currentPhoto: 0,
     };
+    this.handleRightArrowClick = this.handleRightArrowClick.bind(this);
+    this.handleLeftArrowClick = this.handleLeftArrowClick.bind(this);
+  }
+
+  handleLeftArrowClick() {
+    if (this.state.currentPhoto > 0) {
+      this.setState({
+        currentPhoto: this.state.currentPhoto -= 1,
+      });
+    } else {
+      this.setState({
+        currentPhoto: this.state.currentPhoto = this.props.photoDetails.length - 1,
+      });
+    }
+  }
+
+  handleRightArrowClick() {
+    if (this.state.currentPhoto < this.props.photoDetails.length - 1) {
+      this.setState({
+        currentPhoto: this.state.currentPhoto += 1,
+      });
+    } else {
+      this.setState({
+        currentPhoto: this.state.currentPhoto = 0,
+      });
+    }
+
   }
 
   render() {
@@ -20,7 +47,7 @@ class PhotoModal extends React.Component {
           <div className="photoModuleLeftContainer">
             <div className="photoModuleLeftArrowContainer">
               <div className="photoModuleLeftArrow">
-                <span className="FaChevronLeft"> <FaChevronLeft /> </span>
+                <span className="FaChevronLeft" onClick={this.handleLeftArrowClick}> <FaChevronLeft /> </span>
               </div> {/*photoModuleLeftArrow*/}
 
             </div> {/*photoModuleLeftArrowContainer*/}
@@ -28,13 +55,15 @@ class PhotoModal extends React.Component {
             <div className="photoModuleMainPhotoContainer">
               <div className="photoModuleMainPhoto">
                 <Photo photoClass={'modalPhoto'} photoUrl={this.props.photoDetails[this.state.currentPhoto]}/>
+
               </div> {/*photoModuleMainPhoto*/}
 
             </div> {/*photoModuleMainPhotoContainer*/}
 
             <div className="photoModuleRightArrowContainer">
               <div className="photoModuleRightArrow">
-                <span className="FaChevronRight"> <FaChevronRight /> </span>
+                <span className="FaChevronRight"  onClick={this.handleRightArrowClick}> <FaChevronRight /> </span>
+
               </div> {/*photoModuleRightArrow*/}
 
             </div> {/*photoModuleRightArrowContainer*/}
@@ -43,18 +72,18 @@ class PhotoModal extends React.Component {
 
           <div className="photoModuleRightContainer">
             <div className="photoModuleExitButtonContainer">
-              <div className="photoModuleExitButton" onClick={this.props.photoButtonClick}>
+              <div className="photoModuleExitButton" onClick={this.props.viewPhotoButtonClick}>
                 <span className="FaTimes"> <FaTimes /> </span>
               </div> {/*photoModuleExitButton*/}
 
             </div> {/*photoModuleExitButtonContainer*/}
 
-            <div className="photoModuleCarouselContainer">
-              <PhotoModuleCarousel photos={this.props.photoDetails} />
+            <div className="photoModalCarouselContainer">
+              <PhotoModalCarousel photos={this.props.photoDetails} currentPhoto={this.state.currentPhoto}/>
 
-            </div> {/*photoModuleCarouselContainer*/}
+            </div> {/*photoModalCarouselContainer*/}
 
-            <PhotoModuleDescriptionContainer photos={this.props.photoDetails} />
+            <PhotoModalDescriptionContainer photos={this.props.photoDetails} currentPhoto={this.state.currentPhoto}/>
 
           </div> {/*photoModuleRightContainer*/}
 
@@ -65,24 +94,29 @@ class PhotoModal extends React.Component {
   }
 }
 
-const PhotoModuleCarousel = (props) => {
+const PhotoModalCarousel = (props) => {
   let carouselPhotos = props.photos.map((photo, i) => {
-    return <Photo photoClass={'carouselPhoto'} photoUrl={photo} key={i}/>
+    if (i === props.currentPhoto) {
+      return <Photo photoClass={'carouselPhoto'} photoUrl={photo} key={i}/>
+    } else {
+      return <Photo photoClass={'carouselPhotoActive'} photoUrl={photo} key={i}/>
+    }
   })
   return (
-    <div className="photoModuleCarousel">
+    <div className="photoModalCarousel">
       {carouselPhotos}
     </div>
   );
 };
 
-const PhotoModuleDescriptionContainer = (props) => {
-  let count = props.photos.length;
-  let description = props.photos.length ? props.photos[0].description : "";
+const PhotoModalDescriptionContainer = (props) => {
+  let totalPhotos = props.photos.length;
+  let currentPhoto = props.currentPhoto + 1;
+  let description = props.photos.length ? props.photos[props.currentPhoto].description : "";
   return (
     <div className="photoModuleDescriptionContainer">
       <div className="photoModulePhotoNumber">
-        {`${count} / ${count}`}
+        {`${currentPhoto} / ${totalPhotos}`}
       </div>
       <div className="photoModulePhotoDescription">
         {description}

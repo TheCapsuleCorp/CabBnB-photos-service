@@ -42,9 +42,14 @@
 }
 
 /* layout containers */
+html {
+  height: 100%;
+}
+
 body {
   margin: 0;
   padding-top: 25px;
+  height: 100%;
 }
 
 .parent {
@@ -165,6 +170,7 @@ body {
   background: #ffffff;
   color: #484848;
   text-decoration: none;
+  box-shadow: 0px 2px 6px .25px #A9A9A9;
 }
 
 .view {
@@ -199,7 +205,7 @@ body {
   position: absolute;
   left: 0px;
   top: 0px;
-  width: 100%;
+  width: 100.5%;
   height: 100%;
   z-index: 10;
   background-color: white;
@@ -276,7 +282,7 @@ body {
 .photoModuleRightContainer {
   display: flex;
   flex-direction: column;
-  width: 400px;
+  width: 530px;
 }
 
 .photoModuleExitButtonContainer {
@@ -291,16 +297,17 @@ body {
 }
 
 /*carousel styles*/
-.photoModuleCarouselContainer {
+.photoModalCarouselContainer {
   display: flex;
   flex-direction: row;
   margin-top: 20px;
   padding-left: 20px;
   height: 54px;
-  width: 100%;
+  width: 285px;
+  overflow: scroll;
 }
 
-.photoModuleCarousel {
+.photoModalCarousel {
   display: flex;
   flex-direction: row;
   align-self: center;
@@ -312,6 +319,18 @@ body {
   margin-right: 3px;
   border: solid 2px black;
   border-radius: 15%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.carouselPhotoActive {
+  height: 50px;
+  width: 50px;
+  margin-right: 3px;
+  border: solid 2px black;
+  border-radius: 15%;
+  opacity: .65;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

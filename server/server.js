@@ -3,8 +3,6 @@ const express = require('express');
 const parser = require('body-parser');
 const path = require('path');
 
-const apiRouter = require('./apiRouter');
-
 const app = express();
 
 app.use(parser.json());

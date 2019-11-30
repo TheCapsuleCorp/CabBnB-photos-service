@@ -1,8 +1,9 @@
 import React from 'react';
 import $ from 'jquery';
 
-import Photo from './Photo.jsx';
 import Content from './Content.jsx';
+import Photo from './Photo.jsx';
+import PhotoModal from './PhotoModal.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -10,21 +11,18 @@ class App extends React.Component {
     this.state = {
       photos: [],
       showContent: false,
-      photoButtonClick: false,
+      viewPhotoButtonClick: false,
     };
     this.handleViewPhotosButtonClick = this.handleViewPhotosButtonClick.bind(this);
   }
 
-<<<<<<< HEAD
-=======
   handleShareButtonClick() {
 
   }
 
->>>>>>> update photo modal to dynamically render carousel photos, add description and photo number placeholder
   handleViewPhotosButtonClick() {
     this.setState({
-      photoButtonClick: !this.state.photoButtonClick,
+      viewPhotoButtonClick: !this.state.viewPhotoButtonClick,
     });
   }
 
@@ -48,14 +46,20 @@ class App extends React.Component {
     const { showContent } = this.state;
     let content = showContent ? <Content photos={this.state.photos} handleViewPhotosButtonClick={this.handleViewPhotosButtonClick}/> : null;
 
+    const isViewPhotoButtonClicked = this.state.viewPhotoButtonClick;
+    let photoModal;
+
+    if (isViewPhotoButtonClicked) {
+      photoModal = <PhotoModal viewPhotoButtonClick={this.handleViewPhotosButtonClick} photoDetails={this.state.photos}/>;
+    } else {
+      photoModal = <span />;
+    }
+
     return (
       <div>
+        {photoModal}
         {content}
-<<<<<<< HEAD
       </div>
-=======
-      </div> /*starting div*/
->>>>>>> update photo modal to dynamically render carousel photos, add description and photo number placeholder
     );
   }
 }
