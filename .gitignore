@@ -69,6 +69,7 @@ client/dist/*.gif
 client/dist/*.jpg
 client/dist/*.png
 client/dist/*.svg
+bundle.js
 
 # Assets
 assets
