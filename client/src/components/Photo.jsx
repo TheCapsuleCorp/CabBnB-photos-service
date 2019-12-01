@@ -3,7 +3,7 @@ const DEFAULT_PHOTO_URL = 'https://i.ytimg.com/vi/QggJzZdIYPI/maxresdefault.jpg'
 const DEFAULT_OPACITY = 1;
 
 const Photo = (props) => {
-  let photoUrl = props.photoUrl ? props.photoUrl.url : DEFAULT_PHOTO_URL;
+  let photoUrl = props.photo ? props.photo.url : DEFAULT_PHOTO_URL;
 
   var divStyle = {
     backgroundImage: 'url(' + photoUrl + ')',
