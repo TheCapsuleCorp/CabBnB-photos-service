@@ -288,11 +288,30 @@ body {
   display: flex;
   flex-direction: row;
   margin-top: 20px;
-  padding-left: 20px;
   height: 54px;
   width: 285px;
   overflow: hidden;
 }
+
+.photoModalCarouselLeftGradient {
+  height: 58px;
+  width: 58px;
+  background: linear-gradient(to right, white, transparent);
+  z-index: 20;
+  display: flex;
+  position: absolute;
+}
+
+/* .photoModalCarouselRightGradient {
+  height: 58px;
+  width: 58px;
+  background: linear-gradient(to left, transparent, white);
+  z-index: 20;
+  border: solid 2px green;
+  display: flex;
+  align-self: flex-start;
+  position: absolute;
+} */
 
 .photoModalCarousel {
   display: flex;
@@ -311,7 +330,7 @@ body {
   background-size: cover;
 }
 
-.carouselPhotoActive {
+.carouselPhotoFade {
   height: 50px;
   width: 50px;
   margin-right: 3px;

@@ -85,9 +85,10 @@ class PhotoModal extends React.Component {
             </div>
 
             <div className="photoModalCarouselContainer">
-              <PhotoModalCarousel photos={photos} currentPhoto={currentPhoto}/>
-
-            </div>
+              <div className="photoModalCarouselLeftGradient"></div>
+                <PhotoModalCarousel photos={this.props.photoDetails} currentPhoto={this.state.currentPhoto}/>
+              <div className="photoModalCarouselRightGradient"></div>
+            </div> {/*photoModalCarouselContainer*/}
 
             <PhotoModalDescriptionContainer photos={photos} currentPhoto={currentPhoto}/>
 
@@ -99,5 +100,39 @@ class PhotoModal extends React.Component {
     )
   }
 }
+
+const PhotoModalCarousel = (props) => {
+  let carouselPhotos = props.photos.map((photo, i) => {
+    if (i === props.currentPhoto) {
+      return <Photo photoClass={'carouselPhoto'} photo={photo} key={i}/>
+    } else {
+      return <Photo photoClass={'carouselPhotoFade'} photo={photo} key={i}/>
+    }
+  })
+  let offsetAmount = ((100/props.photos.length) * 2 + (props.currentPhoto * (100/props.photos.length)) * -1);
+  return (
+    <div className="photoModalCarousel" style={{
+      'transform': "translateX(" + offsetAmount + "% )"
+    }}>
+      {carouselPhotos}
+    </div>
+  );
+};
+
+const PhotoModalDescriptionContainer = (props) => {
+  let totalPhotos = props.photos.length;
+  let currentPhoto = props.currentPhoto + 1;
+  let description = props.photos.length ? props.photos[props.currentPhoto].description : "";
+  return (
+    <div className="photoModuleDescriptionContainer">
+      <div className="photoModulePhotoNumber">
+        {`${currentPhoto} / ${totalPhotos}`}
+      </div>
+      <div className="photoModulePhotoDescription">
+        {description}
+      </div>
+    </div>
+  );
+};
 
 export default PhotoModal;
