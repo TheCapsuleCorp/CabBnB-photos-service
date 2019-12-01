@@ -78,11 +78,16 @@ class PhotoModal extends React.Component {
 
             </div> {/*photoModuleExitButtonContainer*/}
 
-            <div className="photoModalCarouselContainer">
-              <div className="photoModalCarouselLeftGradient"></div>
-                <PhotoModalCarousel photos={this.props.photoDetails} currentPhoto={this.state.currentPhoto}/>
+            <div className="photoModalGradientContainer">
+              <div className="photoModalCarouselContainer">
+                <div className="photoModalCarouselLeftGradient"></div>
+                  <PhotoModalCarousel photos={this.props.photoDetails} currentPhoto={this.state.currentPhoto}/>
+
+              </div> {/*photoModalCarouselContainer*/}
               <div className="photoModalCarouselRightGradient"></div>
-            </div> {/*photoModalCarouselContainer*/}
+            </div> {/*photoModalGradientContainer*/}
+
+
 
             <PhotoModalDescriptionContainer photos={this.props.photoDetails} currentPhoto={this.state.currentPhoto}/>
 

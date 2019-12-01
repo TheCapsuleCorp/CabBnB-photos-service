@@ -228,7 +228,7 @@ body {
 }
 
 .photoModuleLeftArrow {
-  height: 52.5%;
+  height: 60%;
 }
 
 .photoModuleRightArrowContainer {
@@ -238,12 +238,12 @@ body {
 }
 
 .photoModuleRightArrow {
-  height: 52.5%;
+  height: 60%;
 }
 
 .photoModuleMainPhotoContainer {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   height: 100%;
   width: 100%;
@@ -254,7 +254,7 @@ body {
 .photoModuleMainPhoto {
   height: 64%;
   width: 100%;
-  align-self: center;
+  margin-top: 80px;
 }
 
 .modalPhoto {
@@ -289,42 +289,51 @@ body {
   display: flex;
   flex-direction: row-reverse;
   width: 100%;
-  margin-top: 45px;
+  margin-top: 35px;
 }
 
 .photoModuleExitButton {
-  margin-right: 45px;
+  margin-right: 35px;
 }
 
 /*carousel styles*/
+.photoModalGradientContainer {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: 20px;
+  height: 60px;
+  width: 90%;
+  z-index: 20;
+}
+
 .photoModalCarouselContainer {
   display: flex;
   flex-direction: row;
-  margin-top: 20px;
+  flex-wrap: nowrap;
   height: 54px;
   width: 285px;
-  overflow: scroll;
+  z-index: 15;
+  overflow: hidden;
 }
 
 .photoModalCarouselLeftGradient {
   height: 58px;
-  width: 58px;
+  width: 70px;
   background: linear-gradient(to right, white, transparent);
   z-index: 20;
   display: flex;
   position: absolute;
 }
 
-/* .photoModalCarouselRightGradient {
-  height: 58px;
-  width: 58px;
-  background: linear-gradient(to left, transparent, white);
+.photoModalCarouselRightGradient {
+  height: 80px;
+  width: 70px;
+  background: linear-gradient(to right, transparent, white);
   z-index: 20;
-  border: solid 2px green;
   display: flex;
-  align-self: flex-start;
+  align-self: flex-end;
   position: absolute;
-} */
+}
 
 .photoModalCarousel {
   display: flex;
@@ -356,7 +365,6 @@ body {
 }
 
 /*photo description styles*/
-
 .photoModuleDescriptionContainer {
   margin-top: 39px;
 }
