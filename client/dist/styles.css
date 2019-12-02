@@ -41,6 +41,12 @@
   src: local('Airbnb Cereal App Black'), url('./fonts/airbnb-cereal-app-cufonfonts-woff/AirbnbCerealBlack.woff') format('woff');
 }
 
+/*set images to responsive*/
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 /* layout containers */
 html {
   height: 100%;
@@ -128,7 +134,8 @@ body {
   display: flex;
   flex-direction: row-reverse;
   margin-top: 35px;
-  width: 100%;
+  width: 50%;
+  position: absolute;
 }
 
 .saveButtonContainer {
@@ -139,8 +146,10 @@ body {
 .viewPhotosButtonContainer {
   display: flex;
   flex-direction: row-reverse;
-  width: 100%;
+  width: 50%;
   margin-top: 160px;
+  /* z-index: 15; */
+  position: absolute;
 }
 
 .homeScreenButton {
@@ -301,6 +310,8 @@ body {
   width: 285px;
   z-index: 15;
   overflow: hidden;
+  /* scroll-snap-type: x mandatory; */
+  /* transition: transform 300ms cubic-bezier(0.455, 0.03, 0.515, 0.955); */
 }
 
 .photoModalCarouselLeftGradient {
@@ -366,4 +377,39 @@ body {
   font-family: 'Cereal';
   font-weight: 300;
   width: 305px;
+}
+
+/* For tablets: */
+@media only screen and (max-width: 1090px) {
+  .leftPhoto {
+    width: 85%;
+  }
+  .rightTopRightPhoto {
+    display: none;
+  }
+  .rightBottomRightPhoto {
+    display: none;
+  }
+  .rightBottomLeftPhoto {
+    width: 100%;
+  }
+  .rightTopLeftPhoto {
+    width: 100%;
+  }
+  .viewPhotosButtonContainer {
+    width: 35%;
+  }
+  .shareAndSaveContainer {
+    width: 35%;
+  }
+  /* .photoModuleRightContainer {
+    width: 100%;
+  }
+  .photoModuleLeftContainer {
+    width: 100%;
+  }
+  .photoModuleParentContainer {
+    display: flex;
+    flex-direction: column;
+  } */
 }

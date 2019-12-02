@@ -7,6 +7,7 @@ const Content = (props) => (
   <div className="parent">
     <Photo photoClass={'leftPhoto desktopPhotoBorderAndPosition'} photoUrl={props.photos[0]} />
     <div className="rightPhotosContainer">
+
       <div className="rightTopPhotoContainer">
         <Photo photoClass={'rightTopLeftPhoto desktopPhotoBorderAndPosition'} photoUrl={props.photos[1]} />
         <Photo photoClass={'rightTopRightPhoto desktopPhotoBorderAndPosition'} photoUrl={props.photos[2]}>
@@ -20,9 +21,11 @@ const Content = (props) => (
             </div>
 
           </div>
-
-        </Photo>
-
+          <div className="shareButtonContainer" onClick={props.handleShareButtonClick}>
+            <span className="share homeScreenButton"><FaBeer />  Share</span>
+          </div>
+        </div>
+        <Photo photoClass={'rightTopRightPhoto'} photo={props.photos[2]} />
       </div>
 
       <div className="rightBottomPhotoContainer">
