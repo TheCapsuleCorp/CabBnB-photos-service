@@ -1,8 +1,8 @@
 import React from 'react';
 import Photo from './Photo.jsx';
-import { FaChevronRight } from 'react-icons/fa';
-import { FaChevronLeft } from 'react-icons/fa';
-import { FaTimes } from 'react-icons/fa';
+import PhotoModalCarousel from './PhotoModalCarousel.jsx';
+import PhotoModalDescriptionContainer from './PhotoModalDescriptionContainer.jsx';
+import { FaChevronRight, FaChevronLeft, FaTimes} from 'react-icons/fa';
 
 class PhotoModal extends React.Component {
   constructor(props) {
@@ -15,31 +15,32 @@ class PhotoModal extends React.Component {
   }
 
   handleLeftArrowClick() {
-    if (this.state.currentPhoto > 0) {
-      this.setState({
-        currentPhoto: this.state.currentPhoto -= 1,
-      });
-    } else {
-      this.setState({
-        currentPhoto: this.state.currentPhoto = this.props.photoDetails.length - 1,
-      });
-    }
+    const { currentPhoto } = this.state;
+    const { photoDetails } = this.props;
+    const newCurrentPhoto =
+      currentPhoto > 0 ? currentPhoto - 1 : photoDetails.length - 1;
+
+    this.setState({
+      currentPhoto: newCurrentPhoto,
+    });
   }
 
   handleRightArrowClick() {
-    if (this.state.currentPhoto < this.props.photoDetails.length - 1) {
-      this.setState({
-        currentPhoto: this.state.currentPhoto += 1,
-      });
-    } else {
-      this.setState({
-        currentPhoto: this.state.currentPhoto = 0,
-      });
-    }
+    const { currentPhoto } = this.state;
+    const { photoDetails } = this.props;
+    const newCurrentPhoto =
+      currentPhoto < photoDetails.length - 1 ? currentPhoto + 1 : 0;
 
+    this.setState({
+      currentPhoto: newCurrentPhoto,
+    });
   }
 
   render() {
+
+    const { photoDetails } = this.props;
+    const { currentPhoto } = this.state;
+    const { viewPhotoButtonClick } = this.props;
 
     return (
       <div>
@@ -54,7 +55,7 @@ class PhotoModal extends React.Component {
 
             <div className="photoModuleMainPhotoContainer">
               <div className="photoModuleMainPhoto">
-                <Photo photoClass={'modalPhoto'} photoUrl={this.props.photoDetails[this.state.currentPhoto]}/>
+                <Photo photoClass={'modalPhoto'} photoUrl={photoDetails[currentPhoto]}/>
 
               </div> {/*photoModuleMainPhoto*/}
 
@@ -62,7 +63,7 @@ class PhotoModal extends React.Component {
 
             <div className="photoModuleRightArrowContainer">
               <div className="photoModuleRightArrow">
-                <span className="FaChevronRight"  onClick={this.handleRightArrowClick}> <FaChevronRight /> </span>
+                <span className="FaChevronRight" onClick={this.handleRightArrowClick}> <FaChevronRight /> </span>
 
               </div> {/*photoModuleRightArrow*/}
 
@@ -72,18 +73,18 @@ class PhotoModal extends React.Component {
 
           <div className="photoModuleRightContainer">
             <div className="photoModuleExitButtonContainer">
-              <div className="photoModuleExitButton" onClick={this.props.viewPhotoButtonClick}>
+              <div className="photoModuleExitButton" onClick={viewPhotoButtonClick}>
                 <span className="FaTimes"> <FaTimes /> </span>
               </div> {/*photoModuleExitButton*/}
 
             </div> {/*photoModuleExitButtonContainer*/}
 
             <div className="photoModalCarouselContainer">
-              <PhotoModalCarousel photos={this.props.photoDetails} currentPhoto={this.state.currentPhoto}/>
+              <PhotoModalCarousel photos={photoDetails} currentPhoto={currentPhoto}/>
 
             </div> {/*photoModalCarouselContainer*/}
 
-            <PhotoModalDescriptionContainer photos={this.props.photoDetails} currentPhoto={this.state.currentPhoto}/>
+            <PhotoModalDescriptionContainer photos={photoDetails} currentPhoto={currentPhoto}/>
 
           </div> {/*photoModuleRightContainer*/}
 
@@ -93,36 +94,5 @@ class PhotoModal extends React.Component {
     )
   }
 }
-
-const PhotoModalCarousel = (props) => {
-  let carouselPhotos = props.photos.map((photo, i) => {
-    if (i === props.currentPhoto) {
-      return <Photo photoClass={'carouselPhoto'} photoUrl={photo} key={i}/>
-    } else {
-      return <Photo photoClass={'carouselPhotoActive'} photoUrl={photo} key={i}/>
-    }
-  })
-  return (
-    <div className="photoModalCarousel">
-      {carouselPhotos}
-    </div>
-  );
-};
-
-const PhotoModalDescriptionContainer = (props) => {
-  let totalPhotos = props.photos.length;
-  let currentPhoto = props.currentPhoto + 1;
-  let description = props.photos.length ? props.photos[props.currentPhoto].description : "";
-  return (
-    <div className="photoModuleDescriptionContainer">
-      <div className="photoModulePhotoNumber">
-        {`${currentPhoto} / ${totalPhotos}`}
-      </div>
-      <div className="photoModulePhotoDescription">
-        {description}
-      </div>
-    </div>
-  );
-};
 
 export default PhotoModal;

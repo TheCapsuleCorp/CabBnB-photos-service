@@ -11,18 +11,14 @@ class App extends React.Component {
     this.state = {
       photos: [],
       showContent: false,
-      viewPhotoButtonClick: false,
+      showModal: false,
     };
     this.handleViewPhotosButtonClick = this.handleViewPhotosButtonClick.bind(this);
   }
 
-  handleShareButtonClick() {
-
-  }
-
   handleViewPhotosButtonClick() {
     this.setState({
-      viewPhotoButtonClick: !this.state.viewPhotoButtonClick,
+      showModal: !this.state.showModal,
     });
   }
 
@@ -44,16 +40,10 @@ class App extends React.Component {
 
   render() {
     const { showContent } = this.state;
-    let content = showContent ? <Content photos={this.state.photos} handleViewPhotosButtonClick={this.handleViewPhotosButtonClick}/> : null;
+    const content = showContent ? <Content photos={this.state.photos} handleViewPhotosButtonClick={this.handleViewPhotosButtonClick}/> : null;
 
-    const isViewPhotoButtonClicked = this.state.viewPhotoButtonClick;
-    let photoModal;
-
-    if (isViewPhotoButtonClicked) {
-      photoModal = <PhotoModal viewPhotoButtonClick={this.handleViewPhotosButtonClick} photoDetails={this.state.photos}/>;
-    } else {
-      photoModal = <span />;
-    }
+    const { showModal } = this.state;
+    let photoModal = showModal ? <PhotoModal viewPhotoButtonClick={this.handleViewPhotosButtonClick} photoDetails={this.state.photos}/> : null;
 
     return (
       <div>
