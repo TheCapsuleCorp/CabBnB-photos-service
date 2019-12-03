@@ -5,7 +5,9 @@ import Photo from './Photo.jsx';
 
 const Content = (props) => (
   <div className="parent">
-    <Photo photoClass={'leftPhoto desktopPhotoBorderAndPosition'} photoUrl={props.photos[0]} />
+    <MobilePaginationDotsContainer photo={props.photos} />
+    <Photo photoClass={'leftPhoto'} photo={props.photos[0]} />
+    <Photo photoClass={'mobileMainPhoto'} photo={props.photos[0]} />
     <div className="rightPhotosContainer">
 
       <div className="rightTopPhotoContainer">
@@ -43,5 +45,21 @@ const Content = (props) => (
 
   </div>
 );
+
+const MobilePaginationDotsContainer = (props) => {
+  let dots = props.photo.map((photo, i) => {
+    if (i < 7) {
+      return <li key={i}> <div></div> </li>
+    }
+  })
+
+  return (
+    <React.Fragment>
+      <ul className="mobilePaginationDotsContainer">
+        {dots}
+      </ul>
+    </React.Fragment>
+  );
+}
 
 export default Content;

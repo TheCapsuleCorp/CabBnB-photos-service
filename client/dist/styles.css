@@ -80,6 +80,21 @@ body {
   background-color: #ded8c9;
 }
 
+.mobileMainPhoto {
+  height: 100%;
+  width: 50%;
+  background-color: #ded8c9;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border: solid 1px rgb(71,71,71);
+  display: none;
+}
+
+.mobilePaginationDotsContainer {
+  display: none;
+}
+
 .rightPhotosContainer{
   display: flex;
   flex-direction: column;
@@ -148,7 +163,6 @@ body {
   flex-direction: row-reverse;
   width: 50%;
   margin-top: 160px;
-  /* z-index: 15; */
   position: absolute;
 }
 
@@ -420,5 +434,17 @@ body {
   }
   .rightPhotosContainer {
     display: none;
+  }
+  .parent {
+    justify-content: center;
+  }
+  .mobilePaginationDotsContainer {
+    display: flex;
+    position: absolute;
+    color: green;
+    margin-top: 57%;
+  }
+  .mobileMainPhoto {
+
   }
 }
