@@ -16,9 +16,9 @@ class PhotoModal extends React.Component {
 
   handleLeftArrowClick() {
     const { currentPhoto } = this.state;
-    const { photoDetails } = this.props;
+    const { photos } = this.props;
     const newCurrentPhoto =
-      currentPhoto > 0 ? currentPhoto - 1 : photoDetails.length - 1;
+      currentPhoto > 0 ? currentPhoto - 1 : photos.length - 1;
 
     this.setState({
       currentPhoto: newCurrentPhoto,
@@ -27,9 +27,9 @@ class PhotoModal extends React.Component {
 
   handleRightArrowClick() {
     const { currentPhoto } = this.state;
-    const { photoDetails } = this.props;
+    const { photos } = this.props;
     const newCurrentPhoto =
-      currentPhoto < photoDetails.length - 1 ? currentPhoto + 1 : 0;
+      currentPhoto < photos.length - 1 ? currentPhoto + 1 : 0;
 
     this.setState({
       currentPhoto: newCurrentPhoto,
@@ -37,8 +37,7 @@ class PhotoModal extends React.Component {
   }
 
   render() {
-
-    const { photoDetails } = this.props;
+    const { photos } = this.props;
     const { currentPhoto } = this.state;
     const { viewPhotoButtonClick } = this.props;
 
@@ -48,49 +47,55 @@ class PhotoModal extends React.Component {
           <div className="photoModuleLeftContainer">
             <div className="photoModuleLeftArrowContainer">
               <div className="photoModuleLeftArrow">
-                <span className="FaChevronLeft" onClick={this.handleLeftArrowClick}> <FaChevronLeft /> </span>
-              </div> {/*photoModuleLeftArrow*/}
+                <span className="FaChevronLeft" onClick={this.handleLeftArrowClick}>
+                  <FaChevronLeft />
+                </span>
+              </div>
 
-            </div> {/*photoModuleLeftArrowContainer*/}
+            </div>
 
             <div className="photoModuleMainPhotoContainer">
               <div className="photoModuleMainPhoto">
-                <Photo photoClass={'modalPhoto'} photoUrl={photoDetails[currentPhoto]}/>
+                <Photo photoClass={'modalPhoto'} photoUrl={photos[currentPhoto]}/>
 
-              </div> {/*photoModuleMainPhoto*/}
+              </div>
 
-            </div> {/*photoModuleMainPhotoContainer*/}
+            </div>
 
             <div className="photoModuleRightArrowContainer">
               <div className="photoModuleRightArrow">
-                <span className="FaChevronRight" onClick={this.handleRightArrowClick}> <FaChevronRight /> </span>
+                <span className="FaChevronRight" onClick={this.handleRightArrowClick}>
+                  <FaChevronRight />
+                </span>
 
-              </div> {/*photoModuleRightArrow*/}
+              </div>
 
-            </div> {/*photoModuleRightArrowContainer*/}
+            </div>
 
-          </div> {/*photoModuleLeftContainer*/}
+          </div>
 
           <div className="photoModuleRightContainer">
             <div className="photoModuleExitButtonContainer">
               <div className="photoModuleExitButton" onClick={viewPhotoButtonClick}>
-                <span className="FaTimes"> <FaTimes /> </span>
-              </div> {/*photoModuleExitButton*/}
+                <span className="FaTimes">
+                  <FaTimes />
+                </span>
+              </div>
 
-            </div> {/*photoModuleExitButtonContainer*/}
+            </div>
 
             <div className="photoModalCarouselContainer">
-              <PhotoModalCarousel photos={photoDetails} currentPhoto={currentPhoto}/>
+              <PhotoModalCarousel photos={photos} currentPhoto={currentPhoto}/>
 
-            </div> {/*photoModalCarouselContainer*/}
+            </div>
 
-            <PhotoModalDescriptionContainer photos={photoDetails} currentPhoto={currentPhoto}/>
+            <PhotoModalDescriptionContainer photos={photos} currentPhoto={currentPhoto}/>
 
-          </div> {/*photoModuleRightContainer*/}
+          </div>
 
-        </div> {/*photoModuleParentContainer*/}
+        </div>
 
-      </div> /*starting div*/
+      </div>
     )
   }
 }

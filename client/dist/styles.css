@@ -60,8 +60,11 @@ body {
   width: 100%;
 }
 
-.desktopPhotoBorder {
+.desktopPhotoBorderAndPosition {
   border: solid 1px rgb(71,71,71);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 .leftPhoto {
@@ -69,9 +72,6 @@ body {
   height: 100%;
   width: 50%;
   background-color: #ded8c9;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
 }
 
 .rightPhotosContainer{
@@ -99,9 +99,6 @@ body {
   height: 100%;
   width: 50%;
   background-color: #80bbc5;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
 }
 
 .rightTopRightPhoto {
@@ -110,18 +107,12 @@ body {
   height: 100%;
   width: 50%;
   background-color: salmon;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
 }
 
 .rightBottomLeftPhoto {
   height: 100%;
   width: 50%;
   background-color: #9fcbd3;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
 }
 
 .rightBottomRightPhoto {
@@ -130,9 +121,6 @@ body {
   height: 100%;
   width: 50%;
   background-color: #c0dcaf;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
 }
 
 /* buttons and button containers */

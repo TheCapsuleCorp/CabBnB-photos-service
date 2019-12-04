@@ -40,10 +40,11 @@ class App extends React.Component {
 
   render() {
     const { showContent } = this.state;
-    const content = showContent ? <Content photos={this.state.photos} handleViewPhotosButtonClick={this.handleViewPhotosButtonClick}/> : null;
+    const { photos } = this.state;
+    const content = showContent ? <Content photos={photos} handleViewPhotosButtonClick={this.handleViewPhotosButtonClick}/> : null;
 
     const { showModal } = this.state;
-    let photoModal = showModal ? <PhotoModal viewPhotoButtonClick={this.handleViewPhotosButtonClick} photoDetails={this.state.photos}/> : null;
+    let photoModal = showModal ? <PhotoModal viewPhotoButtonClick={this.handleViewPhotosButtonClick} photos={photos}/> : null;
 
     return (
       <div>

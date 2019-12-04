@@ -1,8 +1,7 @@
 import React from 'react';
 
 const PhotoModalDescriptionContainer = (props) => {
-  const { photos } = props;
-  const { currentPhoto } = props;
+  const { photos, currentPhoto } = props;
   const description = photos.length ? photos[currentPhoto].description : "";
   return (
     <div className="photoModuleDescriptionContainer">

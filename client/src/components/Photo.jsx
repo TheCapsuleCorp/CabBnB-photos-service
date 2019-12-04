@@ -1,8 +1,8 @@
 import React from 'react';
-const DEFAULT_PHOTO_URL = 'https://i.ytimg.com/vi/QggJzZdIYPI/maxresdefault.jpg';
+const DEFAULT_PHOTO_BACKGROUND = 'https://i.ytimg.com/vi/QggJzZdIYPI/maxresdefault.jpg';
 
 const Photo = (props) => {
-  let photoUrl = props.photoUrl ? props.photoUrl.url : DEFAULT_PHOTO_URL;
+  let photoUrl = props.photoUrl ? props.photoUrl.url : DEFAULT_PHOTO_BACKGROUND;
 
   var divStyle = {
     backgroundImage: 'url(' + photoUrl + ')',
