@@ -181,6 +181,7 @@ body {
   color: #484848;
   text-decoration: none;
   box-shadow: 0px 2px 6px .25px #A9A9A9;
+  cursor: pointer;
 }
 
 .view {
@@ -209,7 +210,7 @@ body {
 }
 
 /*photo pop-up module */
-.photoModuleParentContainer {
+.photoModalParentContainer {
   display: flex;
   flex-direction: row;
   position: absolute;
@@ -222,7 +223,7 @@ body {
 }
 
 /*left photo module container details*/
-.photoModuleLeftContainer {
+.photoModalLeftContainer {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -230,28 +231,28 @@ body {
   padding-right: 40px;
 }
 
-.photoModuleLeftArrowContainer {
+.photoModalLeftArrowContainer {
   display: flex;
   flex-direction: column-reverse;
   height: 100%;
   margin-left: 50px;
 }
 
-.photoModuleLeftArrow {
+.photoModalLeftArrow {
   height: 60%;
 }
 
-.photoModuleRightArrowContainer {
+.photoModalRightArrowContainer {
   display: flex;
   flex-direction: column-reverse;
   height: 100%;
 }
 
-.photoModuleRightArrow {
+.photoModalRightArrow {
   height: 60%;
 }
 
-.photoModuleMainPhotoContainer {
+.photoModalMainPhotoContainer {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -261,7 +262,7 @@ body {
   margin-right: 3%;
 }
 
-.photoModuleMainPhoto {
+.photoModalMainPhoto {
   height: 64%;
   width: 100%;
   margin-top: 80px;
@@ -278,10 +279,12 @@ body {
 
 .FaChevronLeft {
   font-size: 30px;
+  cursor: pointer;
 }
 
 .FaChevronRight {
   font-size: 30px;
+  cursor: pointer;
 }
 
 .FaTimes{
@@ -289,28 +292,30 @@ body {
 }
 
 /*right photo module container styles*/
-.photoModuleRightContainer {
+.photoModalRightContainer {
   display: flex;
   flex-direction: column;
   width: 530px;
 }
 
-.photoModuleExitButtonContainer {
+.photoModalExitButtonContainer {
   display: flex;
   flex-direction: row-reverse;
   width: 100%;
   margin-top: 35px;
+  position: absolute;
 }
 
-.photoModuleExitButton {
+.photoModalExitButton {
   margin-right: 35px;
+  cursor: pointer;
 }
 
 /*carousel styles*/
 .photoModalGradientContainer {
   display: flex;
   flex-direction: row-reverse;
-  margin-top: 20px;
+  margin-top: 100px;
   height: 60px;
   width: 90%;
   z-index: 20;
@@ -377,16 +382,16 @@ body {
 }
 
 /*photo description styles*/
-.photoModuleDescriptionContainer {
+.photoModalDescriptionContainer {
   margin-top: 39px;
 }
 
-.photoModulePhotoNumber {
+.photoModalPhotoNumber {
   font-family: 'Cereal';
   font-weight: 400;
 }
 
-.photoModulePhotoDescription {
+.photoModalPhotoDescription {
   margin-top: 20px;
   font-family: 'Cereal';
   font-weight: 300;
@@ -416,13 +421,13 @@ body {
   .shareAndSaveContainer {
     width: 35%;
   }
-  /* .photoModuleRightContainer {
+  /* .photoModalRightContainer {
     width: 100%;
   }
-  .photoModuleLeftContainer {
+  .photoModalLeftContainer {
     width: 100%;
   }
-  .photoModuleParentContainer {
+  .photoModalParentContainer {
     display: flex;
     flex-direction: column;
   } */
@@ -430,7 +435,12 @@ body {
 
 @media only screen and (max-width: 729px) {
   .leftPhoto {
+    display: none;
+  }
+  .mobileMainPhoto {
+    display: flex;
     width: 100%;
+    cursor: pointer;
   }
   .rightPhotosContainer {
     display: none;
@@ -441,10 +451,58 @@ body {
   .mobilePaginationDotsContainer {
     display: flex;
     position: absolute;
-    color: green;
-    margin-top: 57%;
+    color: white;
+    margin-top: 405px;
+    justify-content: center;
+    align-items: center;
   }
-  .mobileMainPhoto {
-
+  .mobileMainPhotoContainer {
+    width: 100%;
+  }
+  .activeDot {
+    font-size: 20px;
+    margin: 7.5px;
+  }
+  .dot {
+    opacity: 70%;
+    font-size: 15px;
+    margin: 7.5px;
+  }
+  .photoModalGradientContainer {
+    display: none;
+  }
+  .photoModalCarouselContainer {
+    display: none;
+  }
+  .photoModalParentContainer {
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+  }
+  .photoModalDescriptionContainer {
+    color: white;
+  }
+  .modalPhoto {
+    height: 470px;
+  }
+  .photoModalLeftArrowContainer {
+    margin-left: 7%;
+    color: white;
+  }
+  .photoModalRightArrowContainer {
+    margin-right: 7%;
+    color: white;
+  }
+  .photoModalRightArrow {
+    height: 45%;
+  }
+  .photoModalLeftArrow {
+    height: 45%;
+  }
+  .photoModalDescriptionContainer {
+    margin-left: 4%
+  }
+  .photoModalExitButtonContainer {
+    color: white;
   }
 }

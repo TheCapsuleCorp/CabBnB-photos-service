@@ -1,6 +1,5 @@
 import React from 'react';
-import { FaBeer } from 'react-icons/fa';
-import { FaHeart } from 'react-icons/fa';
+import { FaBeer, FaHeart, FaCircle } from 'react-icons/fa';
 import Photo from './Photo.jsx';
 
 const Content = (props) => (
@@ -17,15 +16,11 @@ const Content = (props) => (
             <div className="saveButtonContainer">
               <span className="save homeScreenButton"><FaHeart />  Save</span>
             </div>
-
-            <div className="shareButtonContainer" onClick={props.handleShareButtonClick}>
+            <div className="shareButtonContainer">
               <span className="share homeScreenButton"><FaBeer />  Share</span>
             </div>
-
           </div>
-          <div className="shareButtonContainer" onClick={props.handleShareButtonClick}>
-            <span className="share homeScreenButton"><FaBeer />  Share</span>
-          </div>
+          <Photo photoClass={'rightTopRightPhoto'} photo={photos[2]} />
         </div>
         <Photo photoClass={'rightTopRightPhoto'} photo={props.photos[2]} />
       </div>
@@ -40,24 +35,23 @@ const Content = (props) => (
         </Photo>
 
       </div>
-
     </div>
-
-  </div>
-);
+  );
+}
 
 const MobilePaginationDotsContainer = (props) => {
   let dots = props.photo.map((photo, i) => {
-    if (i < 7) {
-      return <li key={i}> <div></div> </li>
+    if (i === props.currentPhoto) {
+      return <div key={i} className="activeDot"><FaCircle /></div>
+    } else {
+      return <div key={i} className="dot"><FaCircle /></div>
     }
-  })
-
+  });
   return (
     <React.Fragment>
-      <ul className="mobilePaginationDotsContainer">
+      <div className="mobilePaginationDotsContainer">
         {dots}
-      </ul>
+      </div>
     </React.Fragment>
   );
 }
