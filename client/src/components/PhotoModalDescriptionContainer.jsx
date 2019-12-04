@@ -4,11 +4,11 @@ const PhotoModalDescriptionContainer = (props) => {
   const { photos, currentPhoto } = props;
   const description = photos.length ? photos[currentPhoto].description : "";
   return (
-    <div className="photoModuleDescriptionContainer">
-      <div className="photoModulePhotoNumber">
+    <div className="photoModalDescriptionContainer">
+      <div className="photoModalPhotoNumber">
         {`${currentPhoto + 1} / ${photos.length}`}
       </div>
-      <div className="photoModulePhotoDescription">
+      <div className="photoModalPhotoDescription">
         {description}
       </div>
     </div>

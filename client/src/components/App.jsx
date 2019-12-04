@@ -11,7 +11,7 @@ class App extends React.Component {
     this.state = {
       photos: [],
       showContent: false,
-      viewPhotoButtonClick: false,
+      showModal: false,
       currentPhoto: 0,
     };
     this.handleViewPhotosButtonClick = this.handleViewPhotosButtonClick.bind(this);
@@ -26,27 +26,23 @@ class App extends React.Component {
   }
 
   handleLeftArrowClick() {
-    if (this.state.currentPhoto > 0) {
-      this.setState({
-        currentPhoto: this.state.currentPhoto -= 1,
-      });
-    } else {
-      this.setState({
-        currentPhoto: this.state.currentPhoto = this.state.photos.length - 1,
-      });
-    }
+    const { currentPhoto, photos } = this.state;
+    const newCurrentPhoto =
+      currentPhoto > 0 ? currentPhoto - 1 : photos.length - 1;
+
+    this.setState({
+      currentPhoto: newCurrentPhoto,
+    });
   }
 
   handleRightArrowClick() {
-    if (this.state.currentPhoto < this.state.photos.length - 1) {
-      this.setState({
-        currentPhoto: this.state.currentPhoto += 1,
-      });
-    } else {
-      this.setState({
-        currentPhoto: this.state.currentPhoto = 0,
-      });
-    }
+    const { currentPhoto, photos } = this.state;
+    const newCurrentPhoto =
+      currentPhoto < photos.length - 1 ? currentPhoto + 1 : 0;
+
+    this.setState({
+      currentPhoto: newCurrentPhoto,
+    });
   }
 
   componentDidMount() {
@@ -66,16 +62,16 @@ class App extends React.Component {
   }
 
   render() {
-    const { showContent } = this.state;
-    let content = showContent ? <Content photos={this.state.photos}
-      handleViewPhotosButtonClick={this.handleViewPhotosButtonClick}
-      currentPhoto={this.state.currentPhoto}/> : null;
+    const { currentPhoto, photos, showContent, showModal } = this.state;
 
-    const isViewPhotoButtonClicked = this.state.viewPhotoButtonClick;
-    let photoModal = isViewPhotoButtonClicked ? <PhotoModal
+    let content = showContent ? <Content photos={photos}
+      handleViewPhotosButtonClick={this.handleViewPhotosButtonClick}
+      currentPhoto={currentPhoto}/> : null;
+
+    let photoModal = showModal ? <PhotoModal
       viewPhotoButtonClick={this.handleViewPhotosButtonClick}
-      photoDetails={this.state.photos}
-      currentPhoto={this.state.currentPhoto}
+      photos={photos}
+      currentPhoto={currentPhoto}
       handleLeftArrowClick={this.handleLeftArrowClick}
       handleRightArrowClick={this.handleRightArrowClick} /> : null;
 
@@ -85,7 +81,7 @@ class App extends React.Component {
         {content}
       </div>
     );
-  }
+  };
 }
 
 export default App;

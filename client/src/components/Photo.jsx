@@ -2,9 +2,9 @@ import React from 'react';
 const DEFAULT_PHOTO_BACKGROUND = 'https://i.ytimg.com/vi/QggJzZdIYPI/maxresdefault.jpg';
 
 const Photo = (props) => {
-  let photoUrl = props.photoUrl ? props.photoUrl.url : DEFAULT_PHOTO_BACKGROUND;
+  let photoUrl = props.photo ? props.photo.url : DEFAULT_PHOTO_BACKGROUND;
 
-  var divStyle = {
+  let divStyle = {
     backgroundImage: 'url(' + photoUrl + ')',
   };
 
@@ -13,6 +13,6 @@ const Photo = (props) => {
       {props.children}
     </div>
   );
-};
+}
 
 export default Photo;
