@@ -1,9 +1,9 @@
 import React from 'react';
 import $ from 'jquery';
 
-import Photo from './Photo.jsx';
 import Content from './Content.jsx';
-
+import Photo from './Photo.jsx';
+import PhotoModal from './PhotoModal.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -11,13 +11,14 @@ class App extends React.Component {
     this.state = {
       photos: [],
       showContent: false,
+      showModal: false,
     };
     this.handleViewPhotosButtonClick = this.handleViewPhotosButtonClick.bind(this);
   }
 
   handleViewPhotosButtonClick() {
     this.setState({
-      photoButtonClick: !this.state.photoButtonClick,
+      showModal: !this.state.showModal,
     });
   }
 
@@ -39,10 +40,15 @@ class App extends React.Component {
 
   render() {
     const { showContent } = this.state;
-    let content = showContent ? <Content photos={this.state.photos} handleViewPhotosButtonClick={this.handleViewPhotosButtonClick}/> : null;
+    const { photos } = this.state;
+    const content = showContent ? <Content photos={photos} handleViewPhotosButtonClick={this.handleViewPhotosButtonClick}/> : null;
+
+    const { showModal } = this.state;
+    let photoModal = showModal ? <PhotoModal viewPhotoButtonClick={this.handleViewPhotosButtonClick} photos={photos}/> : null;
 
     return (
       <div>
+        {photoModal}
         {content}
       </div>
     );

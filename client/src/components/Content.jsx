@@ -5,11 +5,11 @@ import Photo from './Photo.jsx';
 
 const Content = (props) => (
   <div className="parent">
-    <Photo photoClass={'leftPhoto'} photoUrl={props.photos[0]} />
+    <Photo photoClass={'leftPhoto desktopPhotoBorderAndPosition'} photoUrl={props.photos[0]} />
     <div className="rightPhotosContainer">
       <div className="rightTopPhotoContainer">
-        <Photo photoClass={'rightTopLeftPhoto'} photoUrl={props.photos[1]} />
-        <Photo photoClass={'rightTopRightPhoto'} photoUrl={props.photos[2]}>
+        <Photo photoClass={'rightTopLeftPhoto desktopPhotoBorderAndPosition'} photoUrl={props.photos[1]} />
+        <Photo photoClass={'rightTopRightPhoto desktopPhotoBorderAndPosition'} photoUrl={props.photos[2]}>
           <div className="shareAndSaveContainer">
             <div className="saveButtonContainer">
               <span className="save homeScreenButton"><FaHeart />  Save</span>
@@ -26,8 +26,8 @@ const Content = (props) => (
       </div>
 
       <div className="rightBottomPhotoContainer">
-        <Photo photoClass={'rightBottomLeftPhoto'} photoUrl={props.photos[3]} />
-        <Photo photoClass={'rightBottomRightPhoto'} photoUrl={props.photos[4]}>
+        <Photo photoClass={'rightBottomLeftPhoto desktopPhotoBorderAndPosition'} photoUrl={props.photos[3]} />
+        <Photo photoClass={'rightBottomRightPhoto desktopPhotoBorderAndPosition'} photoUrl={props.photos[4]}>
           <div className="viewPhotosButtonContainer" onClick={props.handleViewPhotosButtonClick}>
             <span className="view homeScreenButton">View Photos</span>
           </div>

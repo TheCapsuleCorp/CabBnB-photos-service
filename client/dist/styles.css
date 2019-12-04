@@ -42,9 +42,14 @@
 }
 
 /* layout containers */
+html {
+  height: 100%;
+}
+
 body {
   margin: 0;
   padding-top: 25px;
+  height: 100%;
 }
 
 .parent {
@@ -55,14 +60,18 @@ body {
   width: 100%;
 }
 
+.desktopPhotoBorderAndPosition {
+  border: solid 1px rgb(71,71,71);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
 .leftPhoto {
   display: flex;
   height: 100%;
   width: 50%;
   background-color: #ded8c9;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
 }
 
 .rightPhotosContainer{
@@ -90,9 +99,6 @@ body {
   height: 100%;
   width: 50%;
   background-color: #80bbc5;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
 }
 
 .rightTopRightPhoto {
@@ -101,18 +107,12 @@ body {
   height: 100%;
   width: 50%;
   background-color: salmon;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
 }
 
 .rightBottomLeftPhoto {
   height: 100%;
   width: 50%;
   background-color: #9fcbd3;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
 }
 
 .rightBottomRightPhoto {
@@ -121,9 +121,6 @@ body {
   height: 100%;
   width: 50%;
   background-color: #c0dcaf;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
 }
 
 /* buttons and button containers */
@@ -160,6 +157,7 @@ body {
   background: #ffffff;
   color: #484848;
   text-decoration: none;
+  box-shadow: 0px 2px 6px .25px #A9A9A9;
 }
 
 .view {
@@ -180,7 +178,7 @@ body {
 .photoDescription {
   margin: 0px;
   word-wrap: break-word;
-  font-family: 'Airbnb Cereal App Book', sans-serif;
+  font-family: 'Cereal', sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.375em;
@@ -194,7 +192,7 @@ body {
   position: absolute;
   left: 0px;
   top: 0px;
-  width: 100%;
+  width: 100.5%;
   height: 100%;
   z-index: 10;
   background-color: white;
@@ -205,14 +203,15 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  width: 100%
+  width: 100%;
+  padding-right: 40px;
 }
 
 .photoModuleLeftArrowContainer {
   display: flex;
   flex-direction: column-reverse;
   height: 100%;
-  margin-left: 75px;
+  margin-left: 50px;
 }
 
 .photoModuleLeftArrow {
@@ -241,14 +240,14 @@ body {
 
 .photoModuleMainPhoto {
   height: 64%;
-  width: 90%;
-  background-color: salmon;
+  width: 100%;
   align-self: center;
 }
 
 .modalPhoto {
   height: 100%;
   width: 100%;
+  border-radius: 7%;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -263,14 +262,14 @@ body {
 }
 
 .FaTimes{
-  font-size: 50px;
+  font-size: 40px;
 }
 
-/*right photo module container details*/
+/*right photo module container styles*/
 .photoModuleRightContainer {
   display: flex;
   flex-direction: column;
-  width: 412px;
+  width: 530px;
 }
 
 .photoModuleExitButtonContainer {
@@ -282,4 +281,62 @@ body {
 
 .photoModuleExitButton {
   margin-right: 45px;
+}
+
+/*carousel styles*/
+.photoModalCarouselContainer {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+  padding-left: 20px;
+  height: 54px;
+  width: 285px;
+  overflow: hidden;
+}
+
+.photoModalCarousel {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+}
+
+.carouselPhoto {
+  height: 50px;
+  width: 50px;
+  margin-right: 3px;
+  border: solid 2px black;
+  border-radius: 15%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.carouselPhotoActive {
+  height: 50px;
+  width: 50px;
+  margin-right: 3px;
+  border: solid 2px black;
+  border-radius: 15%;
+  opacity: .65;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+/*photo description styles*/
+
+.photoModuleDescriptionContainer {
+  margin-top: 39px;
+}
+
+.photoModulePhotoNumber {
+  font-family: 'Cereal';
+  font-weight: 400;
+}
+
+.photoModulePhotoDescription {
+  margin-top: 20px;
+  font-family: 'Cereal';
+  font-weight: 300;
+  width: 305px;
 }
