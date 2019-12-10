@@ -38,6 +38,7 @@ module.exports = {
   },
   output: {
     filename: 'bundle.js',
-    path: DIST_DIR
+    library: 'Photos',
+    path: DIST_DIR,
   }
 };
