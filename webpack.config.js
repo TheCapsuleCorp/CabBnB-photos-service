@@ -40,6 +40,5 @@ module.exports = {
     path: DIST_DIR,
     filename: 'bundle.js',
     library: 'Photos',
-    // publicPath: '/',
   }
 };

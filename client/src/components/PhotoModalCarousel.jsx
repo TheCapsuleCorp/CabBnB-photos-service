@@ -1,5 +1,6 @@
 import React from 'react';
 import Photo from './Photo.jsx';
+import '../../dist/styles.css';
 
 const PhotoModalCarousel = (props) => {
   let carouselPhotos = props.photos.map((photo, i) => {
@@ -10,7 +11,7 @@ const PhotoModalCarousel = (props) => {
 
   let offsetAmount = ((100/props.photos.length) * 2 + (props.currentPhoto *
     (100/props.photos.length)) * -1);
-    
+
   return (
     <div className="photoModalCarousel" style={{
       'transform': "translateX(" + offsetAmount + "% )"

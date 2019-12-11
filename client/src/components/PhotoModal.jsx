@@ -3,6 +3,7 @@ import Photo from './Photo.jsx';
 import PhotoModalCarousel from './PhotoModalCarousel.jsx';
 import PhotoModalDescriptionContainer from './PhotoModalDescriptionContainer.jsx';
 import { FaChevronRight, FaChevronLeft, FaTimes } from 'react-icons/fa';
+import '../../dist/styles.css';
 
 const PhotoModal = (props) => {
   const { currentPhoto, handleLeftArrowClick, handleRightArrowClick, photos, viewPhotoButtonClick } = props;

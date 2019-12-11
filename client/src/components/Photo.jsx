@@ -1,4 +1,6 @@
 import React from 'react';
+import '../../dist/styles.css';
+
 const DEFAULT_PHOTO_BACKGROUND = 'https://i.ytimg.com/vi/QggJzZdIYPI/maxresdefault.jpg';
 
 const Photo = (props) => {

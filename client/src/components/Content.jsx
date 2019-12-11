@@ -2,10 +2,11 @@ import React from 'react';
 import { FaBeer, FaHeart} from 'react-icons/fa';
 import Photo from './Photo.jsx';
 import MobilePaginationDotsContainer from './MobilePaginationDotsContainer.jsx';
+import '../../dist/styles.css';
 
 const Content = (props) => {
   const { currentPhoto, handleViewPhotosButtonClick, photos } = props;
-  
+
   return (
     <div className="parent">
       <MobilePaginationDotsContainer photo={photos} currentPhoto={currentPhoto}/>

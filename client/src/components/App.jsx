@@ -4,6 +4,7 @@ import $ from 'jquery';
 import Content from './Content.jsx';
 import Photo from './Photo.jsx';
 import PhotoModal from './PhotoModal.jsx';
+import '../../dist/styles.css';
 
 class App extends React.Component {
   constructor(props) {
