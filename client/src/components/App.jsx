@@ -47,7 +47,7 @@ class App extends React.Component {
 
   componentDidMount() {
     $.ajax({
-      url: `/api/rooms/${this.props.roomId}/photos`,
+      url: `http://localhost:8080/api/rooms/${this.props.roomId}/photos`,
       method: 'GET',
       success: (photos) => {
         this.setState({

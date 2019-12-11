@@ -7,9 +7,9 @@ if (!listingId || listingId.length !== 8) {
   listingId = '11111142';
 }
 const Photos = () => (
-  <App roomId={listingId}/>
+  <App roomId={listingId} />
 );
 
-ReactDOM.render(<App roomId={listingId}/>, document.getElementById('root'));
+// ReactDOM.render(<App roomId={listingId}/>, document.getElementById('root'));
 
 export default Photos;
