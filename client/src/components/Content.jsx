@@ -1,44 +1,55 @@
 import React from 'react';
-import { FaBeer } from 'react-icons/fa';
-import { FaHeart } from 'react-icons/fa';
+import { FaBeer, FaHeart} from 'react-icons/fa';
 import Photo from './Photo.jsx';
+import MobilePaginationDotsContainer from './MobilePaginationDotsContainer.jsx';
+import '../../dist/Content.css';
 
-const Content = (props) => (
-  <div className="parent">
-    <Photo photoClass={'leftPhoto desktopPhotoBorderAndPosition'} photoUrl={props.photos[0]} />
-    <div className="rightPhotosContainer">
-      <div className="rightTopPhotoContainer">
-        <Photo photoClass={'rightTopLeftPhoto desktopPhotoBorderAndPosition'} photoUrl={props.photos[1]} />
-        <Photo photoClass={'rightTopRightPhoto desktopPhotoBorderAndPosition'} photoUrl={props.photos[2]}>
+const Content = ({ currentPhoto, handleViewPhotosButtonClick, photos }) => {
+
+  return (
+    <div className="parent">
+      <MobilePaginationDotsContainer photo={photos} currentPhoto={currentPhoto} />
+      <Photo photoClass="leftPhoto desktopPhotoBorderAndPosition" photo={photos[0]} />
+      <div className="mobileMainPhotoContainer" onClick={handleViewPhotosButtonClick} >
+        <Photo photoClass="mobileMainPhoto" photo={photos[currentPhoto]} />
+      </div>
+      <div className="rightPhotosContainer">
+        <div className="rightTopPhotoContainer">
+          <Photo photoClass="rightTopLeftPhoto desktopPhotoBorderAndPosition"
+            photo={photos[1]} />
           <div className="shareAndSaveContainer">
             <div className="saveButtonContainer">
-              <span className="save homeScreenButton"><FaHeart />  Save</span>
+              <span className="save homeScreenButton">
+                <FaHeart />  <span className="saveText">Save</span>
+              </span>
             </div>
-
-            <div className="shareButtonContainer" onClick={props.handleShareButtonClick}>
-              <span className="share homeScreenButton"><FaBeer />  Share</span>
+            <div className="shareButtonContainer">
+              <span className="share homeScreenButton">
+                <FaBeer />  <span className="shareText">Share</span>
+              </span>
             </div>
-
           </div>
-
-        </Photo>
-
-      </div>
-
-      <div className="rightBottomPhotoContainer">
-        <Photo photoClass={'rightBottomLeftPhoto desktopPhotoBorderAndPosition'} photoUrl={props.photos[3]} />
-        <Photo photoClass={'rightBottomRightPhoto desktopPhotoBorderAndPosition'} photoUrl={props.photos[4]}>
-          <div className="viewPhotosButtonContainer" onClick={props.handleViewPhotosButtonClick}>
+          <Photo
+            photoClass="rightTopRightPhoto desktopPhotoBorderAndPosition"
+            photo={photos[2]}
+          />
+        </div>
+        <div className="rightBottomPhotoContainer">
+          <Photo
+            photoClass="rightBottomLeftPhoto desktopPhotoBorderAndPosition"
+            photo={photos[3]}
+          />
+          <div className="viewPhotosButtonContainer" onClick={handleViewPhotosButtonClick}>
             <span className="view homeScreenButton">View Photos</span>
           </div>
-
-        </Photo>
-
+          <Photo
+            photoClass="rightBottomRightPhoto desktopPhotoBorderAndPosition"
+            photo={photos[4]}
+          />
+        </div>
       </div>
-
     </div>
-
-  </div>
-);
+  );
+}
 
 export default Content;

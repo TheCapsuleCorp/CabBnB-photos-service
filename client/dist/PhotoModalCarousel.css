@@ -1,0 +1,28 @@
+.photoModalCarousel {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+}
+
+.carouselPhoto {
+  height: 50px;
+  width: 50px;
+  margin-right: 3px;
+  border: solid 2px black;
+  border-radius: 15%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.carouselPhotoActive {
+  height: 50px;
+  width: 50px;
+  margin-right: 3px;
+  border: solid 2px black;
+  border-radius: 15%;
+  opacity: .65;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
