@@ -1,0 +1,233 @@
+/* layout containers */
+.parent {
+  display: flex;
+  flex-direction: row;
+  border: solid 2px black;
+  height: 442px;
+  width: 100%;
+}
+
+.desktopPhotoBorderAndPosition {
+  border: solid 1px rgb(71,71,71);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.leftPhoto {
+  display: flex;
+  height: 100%;
+  width: 50%;
+}
+
+.mobileMainPhoto {
+  height: 100%;
+  width: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border: solid 1px rgb(71,71,71);
+  display: none;
+}
+
+.mobilePaginationDotsContainer {
+  display: none;
+}
+
+.rightPhotosContainer{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 50%;
+}
+
+.rightTopPhotoContainer {
+  display: flex;
+  flex-direction: row;
+  height: 50%;
+  width: 100%;
+}
+
+.rightBottomPhotoContainer {
+  display: flex;
+  flex-direction: row;
+  height: 50%;
+  width: 100%;
+}
+
+.rightTopLeftPhoto {
+  height: 100%;
+  width: 50%;
+}
+
+.rightTopRightPhoto {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 50%;
+}
+
+.rightBottomLeftPhoto {
+  height: 100%;
+  width: 50%;
+}
+
+.rightBottomRightPhoto {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 50%;
+}
+
+/* buttons and button containers */
+.shareAndSaveContainer {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: 35px;
+  width: 50%;
+  position: absolute;
+}
+
+.saveButtonContainer {
+  margin-left: 20px;
+  margin-right: 30px;
+}
+
+.viewPhotosButtonContainer {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 50%;
+  margin-top: 160px;
+  position: absolute;
+}
+
+.homeScreenButton {
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: normal;
+  font-family: 'Cereal', sans-serif;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  font-weight: 400;
+  padding-left: 15px;
+  padding-right: 15px;
+  background: #ffffff;
+  color: #484848;
+  text-decoration: none;
+  box-shadow: 0px 2px 6px .25px #A9A9A9;
+  cursor: pointer;
+}
+
+.view {
+  margin-right: 30px;
+}
+
+.share {
+  padding-top: 8.5px;
+  padding-bottom: 7px;
+}
+
+.save {
+  padding-top: 8.5px;
+  padding-bottom: 7px;
+}
+
+/* description text */
+.photoDescription {
+  margin: 0px;
+  word-wrap: break-word;
+  font-family: 'Cereal', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.375em;
+  color: #484848;
+}
+
+/*photo pop-up module */
+.photoModalParentContainer {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background-color: white;
+}
+
+/* For tablets: */
+@media only screen and (max-width: 1090px) {
+  .leftPhoto {
+    width: 85%;
+  }
+
+  .rightTopRightPhoto {
+    display: none;
+  }
+
+  .rightBottomRightPhoto {
+    display: none;
+  }
+
+  .rightBottomLeftPhoto {
+    width: 100%;
+  }
+
+  .rightTopLeftPhoto {
+    width: 100%;
+  }
+
+  .viewPhotosButtonContainer {
+    width: 35%;
+  }
+  
+  .shareAndSaveContainer {
+    width: 35%;
+  }
+}
+
+@media only screen and (max-width: 729px) {
+  .leftPhoto {
+      display: none;
+    }
+
+  .mobileMainPhoto {
+    display: flex;
+    width: 100%;
+    cursor: pointer;
+  }
+
+  .rightPhotosContainer {
+    display: none;
+  }
+
+  .parent {
+    justify-content: center;
+  }
+
+  .mobilePaginationDotsContainer {
+    display: flex;
+    position: absolute;
+    color: white;
+    margin-top: 405px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .mobileMainPhotoContainer {
+    width: 100%;
+  }
+
+  .activeDot {
+    font-size: 20px;
+    margin: 7.5px;
+  }
+
+  .dot {
+    opacity: 70%;
+    font-size: 15px;
+    margin: 7.5px;
+  }
+}

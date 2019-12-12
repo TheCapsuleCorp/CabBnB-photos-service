@@ -3,10 +3,9 @@ import Photo from './Photo.jsx';
 import PhotoModalCarousel from './PhotoModalCarousel.jsx';
 import PhotoModalDescriptionContainer from './PhotoModalDescriptionContainer.jsx';
 import { FaChevronRight, FaChevronLeft, FaTimes } from 'react-icons/fa';
-import '../../dist/styles.css';
+import '../../dist/PhotoModal.css';
 
-const PhotoModal = (props) => {
-  const { currentPhoto, handleLeftArrowClick, handleRightArrowClick, photos, viewPhotoButtonClick } = props;
+const PhotoModal = ({ currentPhoto, handleLeftArrowClick, handleRightArrowClick, photos, viewPhotoButtonClick }) => {
 
   return (
     <div>

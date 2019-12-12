@@ -1,13 +1,13 @@
 import React from 'react';
-import '../../dist/styles.css';
+import '../../dist/photoModalDescriptionContainer.css';
 
-const PhotoModalDescriptionContainer = (props) => {
-  const { photos, currentPhoto } = props;
+const PhotoModalDescriptionContainer = ({ photos, currentPhoto }) => {
   const description = photos.length ? photos[currentPhoto].description : "";
+  const photoNumber = `${currentPhoto + 1} / ${photos.length}`;
   return (
     <div className="photoModalDescriptionContainer">
       <div className="photoModalPhotoNumber">
-        {`${currentPhoto + 1} / ${photos.length}`}
+        {photoNumber}
       </div>
       <div className="photoModalPhotoDescription">
         {description}

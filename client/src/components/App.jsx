@@ -4,7 +4,6 @@ import $ from 'jquery';
 import Content from './Content.jsx';
 import Photo from './Photo.jsx';
 import PhotoModal from './PhotoModal.jsx';
-import '../../dist/styles.css';
 
 class App extends React.Component {
   constructor(props) {
@@ -65,16 +64,20 @@ class App extends React.Component {
   render() {
     const { currentPhoto, photos, showContent, showModal } = this.state;
 
-    let content = showContent ? <Content photos={photos}
-      handleViewPhotosButtonClick={this.handleViewPhotosButtonClick}
-      currentPhoto={currentPhoto}/> : null;
+    let content = showContent ?
+      <Content photos={photos}
+        handleViewPhotosButtonClick={this.handleViewPhotosButtonClick}
+        currentPhoto={currentPhoto}
+      /> : null;
 
-    let photoModal = showModal ? <PhotoModal
-      viewPhotoButtonClick={this.handleViewPhotosButtonClick}
-      photos={photos}
-      currentPhoto={currentPhoto}
-      handleLeftArrowClick={this.handleLeftArrowClick}
-      handleRightArrowClick={this.handleRightArrowClick} /> : null;
+    let photoModal = showModal ?
+      <PhotoModal
+        viewPhotoButtonClick={this.handleViewPhotosButtonClick}
+        photos={photos}
+        currentPhoto={currentPhoto}
+        handleLeftArrowClick={this.handleLeftArrowClick}
+        handleRightArrowClick={this.handleRightArrowClick}
+      /> : null;
 
     return (
       <div>
@@ -82,7 +85,7 @@ class App extends React.Component {
         {content}
       </div>
     );
-  };
+  }
 }
 
 export default App;

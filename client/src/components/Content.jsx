@@ -2,21 +2,20 @@ import React from 'react';
 import { FaBeer, FaHeart} from 'react-icons/fa';
 import Photo from './Photo.jsx';
 import MobilePaginationDotsContainer from './MobilePaginationDotsContainer.jsx';
-import '../../dist/styles.css';
+import '../../dist/Content.css';
 
-const Content = (props) => {
-  const { currentPhoto, handleViewPhotosButtonClick, photos } = props;
+const Content = ({ currentPhoto, handleViewPhotosButtonClick, photos }) => {
 
   return (
     <div className="parent">
-      <MobilePaginationDotsContainer photo={photos} currentPhoto={currentPhoto}/>
-      <Photo photoClass={'leftPhoto desktopPhotoBorderAndPosition'} photo={photos[0]} />
+      <MobilePaginationDotsContainer photo={photos} currentPhoto={currentPhoto} />
+      <Photo photoClass="leftPhoto desktopPhotoBorderAndPosition" photo={photos[0]} />
       <div className="mobileMainPhotoContainer" onClick={handleViewPhotosButtonClick} >
-        <Photo photoClass={'mobileMainPhoto'} photo={photos[currentPhoto]} />
+        <Photo photoClass="mobileMainPhoto" photo={photos[currentPhoto]} />
       </div>
       <div className="rightPhotosContainer">
         <div className="rightTopPhotoContainer">
-          <Photo photoClass={'rightTopLeftPhoto desktopPhotoBorderAndPosition'}
+          <Photo photoClass="rightTopLeftPhoto desktopPhotoBorderAndPosition"
             photo={photos[1]} />
           <div className="shareAndSaveContainer">
             <div className="saveButtonContainer">
@@ -30,17 +29,18 @@ const Content = (props) => {
               </span>
             </div>
           </div>
-          <Photo photoClass={'rightTopRightPhoto desktopPhotoBorderAndPosition'}
+          <Photo photoClass="rightTopRightPhoto desktopPhotoBorderAndPosition"
             photo={photos[2]} />
         </div>
         <div className="rightBottomPhotoContainer">
-          <Photo photoClass={'rightBottomLeftPhoto desktopPhotoBorderAndPosition'}
+          <Photo photoClass="rightBottomLeftPhoto desktopPhotoBorderAndPosition"
             photo={photos[3]} />
           <div className="viewPhotosButtonContainer" onClick={handleViewPhotosButtonClick}>
             <span className="view homeScreenButton">View Photos</span>
           </div>
-          <Photo photoClass={'rightBottomRightPhoto desktopPhotoBorderAndPosition'}
-            photo={photos[4]} />
+          <Photo photoClass="rightBottomRightPhoto desktopPhotoBorderAndPosition"
+            photo={photos[4]}
+          />
         </div>
       </div>
     </div>

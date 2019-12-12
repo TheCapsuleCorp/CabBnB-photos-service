@@ -1,18 +1,17 @@
 import React from 'react';
-import '../../dist/styles.css';
 
 const DEFAULT_PHOTO_BACKGROUND = 'https://i.ytimg.com/vi/QggJzZdIYPI/maxresdefault.jpg';
 
-const Photo = (props) => {
-  let photoUrl = props.photo ? props.photo.url : DEFAULT_PHOTO_BACKGROUND;
+const Photo = ({children, photo, photoClass}) => {
+  let photoUrl = photo ? photo.url : DEFAULT_PHOTO_BACKGROUND;
 
   let divStyle = {
     backgroundImage: 'url(' + photoUrl + ')',
   };
 
   return (
-    <div className={props.photoClass} style={divStyle}>
-      {props.children}
+    <div className={photoClass} style={divStyle}>
+      {children}
     </div>
   );
 }

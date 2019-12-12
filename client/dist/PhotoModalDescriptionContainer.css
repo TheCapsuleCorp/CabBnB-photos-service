@@ -1,0 +1,15 @@
+.photoModalDescriptionContainer {
+  margin-top: 39px;
+}
+
+.photoModalPhotoNumber {
+  font-family: 'Cereal';
+  font-weight: 400;
+}
+
+.photoModalPhotoDescription {
+  margin-top: 20px;
+  font-family: 'Cereal';
+  font-weight: 300;
+  width: 305px;
+}
