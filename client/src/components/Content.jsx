@@ -20,25 +20,30 @@ const Content = ({ currentPhoto, handleViewPhotosButtonClick, photos }) => {
           <div className="shareAndSaveContainer">
             <div className="saveButtonContainer">
               <span className="save homeScreenButton">
-                <FaHeart />  Save
+                <FaHeart />  <span className="saveText">Save</span>
               </span>
             </div>
             <div className="shareButtonContainer">
               <span className="share homeScreenButton">
-                <FaBeer />  Share
+                <FaBeer />  <span className="shareText">Share</span>
               </span>
             </div>
           </div>
-          <Photo photoClass="rightTopRightPhoto desktopPhotoBorderAndPosition"
-            photo={photos[2]} />
+          <Photo
+            photoClass="rightTopRightPhoto desktopPhotoBorderAndPosition"
+            photo={photos[2]}
+          />
         </div>
         <div className="rightBottomPhotoContainer">
-          <Photo photoClass="rightBottomLeftPhoto desktopPhotoBorderAndPosition"
-            photo={photos[3]} />
+          <Photo
+            photoClass="rightBottomLeftPhoto desktopPhotoBorderAndPosition"
+            photo={photos[3]}
+          />
           <div className="viewPhotosButtonContainer" onClick={handleViewPhotosButtonClick}>
             <span className="view homeScreenButton">View Photos</span>
           </div>
-          <Photo photoClass="rightBottomRightPhoto desktopPhotoBorderAndPosition"
+          <Photo
+            photoClass="rightBottomRightPhoto desktopPhotoBorderAndPosition"
             photo={photos[4]}
           />
         </div>

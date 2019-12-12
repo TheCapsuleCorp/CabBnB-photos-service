@@ -65,7 +65,8 @@ class App extends React.Component {
     const { currentPhoto, photos, showContent, showModal } = this.state;
 
     let content = showContent ?
-      <Content photos={photos}
+      <Content
+        photos={photos}
         handleViewPhotosButtonClick={this.handleViewPhotosButtonClick}
         currentPhoto={currentPhoto}
       /> : null;

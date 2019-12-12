@@ -14,6 +14,6 @@ const Photo = ({children, photo, photoClass}) => {
       {children}
     </div>
   );
-}
+};
 
 export default Photo;
