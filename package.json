@@ -7,7 +7,7 @@
   "main": "server/index.js",
   "scripts": {
     "test": "jest --forceExit --testTimeout 10000",
-    "start": "nodemon server/index.js",
+    "start": "nodemon server/index.js & node db/seed.js",
     "react-dev": "webpack -d --watch"
   },
   "jest": {
