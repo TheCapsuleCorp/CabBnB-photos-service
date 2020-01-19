@@ -25,6 +25,8 @@ const roomIdConverter = (arr) => {
 }
 
 db.connect().then(() => {
+  return db.Photos.remove({});
+}).then(() => {
   return db.Photos.insertMany(roomIdConverter(mockData));
 }).then(() => {
   return db.Photos.count({});
