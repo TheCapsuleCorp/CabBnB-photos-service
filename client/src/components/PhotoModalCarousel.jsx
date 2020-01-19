@@ -1,6 +1,6 @@
 import React from 'react';
 import Photo from './Photo.jsx';
-import '../../dist/photoModalCarousel.css';
+import '../../dist/PhotoModalCarousel.css';
 
 const PhotoModalCarousel = (props) => {
   const carouselPhotos = props.photos.map((photo, i) => {

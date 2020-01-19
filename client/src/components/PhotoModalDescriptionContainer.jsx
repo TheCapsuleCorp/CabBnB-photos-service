@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../dist/photoModalDescriptionContainer.css';
+import '../../dist/PhotoModalDescriptionContainer.css';
 
 const PhotoModalDescriptionContainer = ({ photos, currentPhoto }) => {
   const description = photos.length ? photos[currentPhoto].description : "";
