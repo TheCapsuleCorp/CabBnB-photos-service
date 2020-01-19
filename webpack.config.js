@@ -9,11 +9,11 @@ module.exports = {
     rules: [
       {
         test: /\.jsx?$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader',
         resolve: {
           extensions: ['*', '.js', '.jsx'],
         },
+        loader: 'babel-loader',
+        exclude: /node_modules/,
       },
       {
         test: /\.css$/,
